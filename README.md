@@ -1,13 +1,24 @@
-# Animated Under Construction Template
+# 👋 Hi, I'm Vinay Sharma
 
-View the demo [here.](https://tmkamal.github.io/under-construction-template/)
-``` 
-Feel free to use this template for your upcoming projects.
-```
-This template has been built using SVG animation with CSS3.
+I'm a **Ruby on Rails developer** with over 5 years of experience in building scalable and high-performance web applications.
 
-## Preview
+I specialize in:
+- Building RESTful APIs
+- Payment gateway integration
+- Performance optimization
+- Deployments on AWS and Heroku
 
-> Actual template is a lot smoother than this.  
+I've worked across industries like e-commerce, CRM, POS systems, VoIP, and real estate platforms.
 
-![Preview](https://github.com/tmKamal/hosted-images/blob/master/under-construction/Document.gif?raw=true)<br/>  
+---
+
+## 📫 Contact
+
+- ✉️ Email: [vinaysharma.contact@gmail.com](mailto:vinaysharma.contact@gmail.com)  
+- 🧑‍💻 GitHub: [vinshaku](https://github.com/vinshaku)  
+- 💼 LinkedIn: [vinshaku](https://linkedin.com/in/vinshaku)  
+- 🌐 Portfolio: [vins.dev](https://vins.dev)
+
+---
+
+Thanks for stopping by!
