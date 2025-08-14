@@ -21,4 +21,4 @@ I've worked across industries like e-commerce, CRM, POS systems, VoIP, and real 
 
 ---
 
-Thanks for stopping by!
+Thanks for visit!
