@@ -15,7 +15,7 @@
     <!-- Custom Styles -->
     <link rel="stylesheet" href="styles.css">
     
-    <!-- Three.js -->
+        <!-- Three.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   </head>
 <body>
@@ -27,8 +27,17 @@
         </div>
     </div>
 
+    <!-- Custom Cursor -->
+    <div class="custom-cursor">
+        <div class="cursor-dot"></div>
+        <div class="cursor-outline"></div>
+    </div>
+
     <!-- Three.js Background Canvas -->
     <canvas id="galaxy-canvas"></canvas>
+    
+    <!-- Wave Animation Canvas -->
+    <canvas id="wave-canvas"></canvas>
     
     <!-- Navigation -->
     <nav id="navbar" class="navbar">
@@ -74,7 +83,7 @@
     <section id="hero" class="hero">
         <div class="hero-content">
             <h1 id="hero-name" class="hero-name">
-                <span class="particle-text">Vinay Sharma</span>
+                <span class="hero-text-animated">Vinay Sharma</span>
             </h1>
             <p class="hero-tagline">
                 <span class="fade-in-text">Ruby on Rails Developer</span>
@@ -171,14 +180,14 @@
 
       <!-- Projects Section -->
     <section id="projects" class="projects section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Projects & Domains</h2>
-                <div class="section-line"></div>
+        <div class="projects-wrapper">
+            <div class="projects-header">
+                <h2 class="projects-title">Featured Work</h2>
+                <p class="projects-subtitle">Scroll to explore projects</p>
             </div>
-            <div class="projects-container">
-                <!-- Project Cards -->
-                <div class="project-card glass-card" data-project="1">
+            <div class="projects-stack">
+                <!-- Project Cards - Fullscreen Stack -->
+                <div class="project-card-fullscreen" data-project="1">
                     <div class="project-number">01</div>
                     <div class="project-content">
                         <h3 class="project-title">CRM System</h3>
@@ -197,7 +206,7 @@
                     </div>
                 </div>
                 
-                <div class="project-card glass-card" data-project="2">
+                <div class="project-card-fullscreen" data-project="2">
                     <div class="project-number">02</div>
                     <div class="project-content">
                         <h3 class="project-title">E-Commerce Platform</h3>
@@ -216,7 +225,7 @@
                     </div>
                 </div>
                 
-                <div class="project-card glass-card" data-project="3">
+                <div class="project-card-fullscreen" data-project="3">
                     <div class="project-number">03</div>
                     <div class="project-content">
                         <h3 class="project-title">ERP Solution</h3>
@@ -235,7 +244,7 @@
             </div>
           </div>
                 
-                <div class="project-card glass-card" data-project="4">
+                <div class="project-card-fullscreen" data-project="4">
                     <div class="project-number">04</div>
                     <div class="project-content">
                         <h3 class="project-title">Social Media Features</h3>
@@ -254,7 +263,7 @@
             </div>
           </div>
                 
-                <div class="project-card glass-card" data-project="5">
+                <div class="project-card-fullscreen" data-project="5">
                     <div class="project-number">05</div>
                     <div class="project-content">
                         <h3 class="project-title">Finance App</h3>
@@ -273,24 +282,6 @@
           </div>
         </div>
                 
-                <div class="project-card glass-card" data-project="6">
-                    <div class="project-number">06</div>
-                    <div class="project-content">
-                        <h3 class="project-title">Analytics Dashboard</h3>
-                        <p class="project-description">
-                            Built comprehensive analytics platforms with real-time data visualization, 
-                            custom reporting, and predictive analytics. Processed large datasets 
-                            efficiently with optimized queries and caching strategies.
-                        </p>
-                        <div class="project-tech">
-                            <span>Rails</span>
-                            <span>D3.js</span>
-                            <span>Redis</span>
-                            <span>Background Jobs</span>
-                        </div>
-                        <a href="#" class="project-link">Learn More →</a>
-        </div>
-          </div>
           </div>
         </div>
       </section>
@@ -358,8 +349,8 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="galaxy.js"></script>
-    <script src="particles.js"></script>
+    <!-- <script src="galaxy.js"></script> -->
+    <script src="waves.js"></script>
     <script src="main.js"></script>
   </body>
 </html>

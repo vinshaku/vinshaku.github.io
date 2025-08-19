@@ -9,14 +9,10 @@ document.addEventListener('DOMContentLoaded', function() {
     initLoadingScreen();
     initNavigation();
     initSmoothScroll();
-    initProjectCards();
+    initCustomCursor();
+    initFullscreenProjects();
     initContactForm();
     initAnimations();
-    
-    // Initialize particle text after a delay
-    setTimeout(() => {
-        initParticleText();
-    }, 1000);
 });
 
 // ===============================
@@ -172,55 +168,158 @@ function initSmoothScroll() {
 }
 
 // ===============================
-// Project Cards Scroll Effect
+// Custom Cursor
 // ===============================
-function initProjectCards() {
-    const projectCards = document.querySelectorAll('.project-card');
+function initCustomCursor() {
+    const cursor = document.querySelector('.custom-cursor');
+    const cursorDot = document.querySelector('.cursor-dot');
+    const cursorOutline = document.querySelector('.cursor-outline');
+    
+    if (!cursor || !cursorDot || !cursorOutline) return;
+    
+    // Check if device has a mouse
+    if (window.matchMedia('(hover: none)').matches) {
+        cursor.style.display = 'none';
+        return;
+    }
+    
+    let mouseX = 0;
+    let mouseY = 0;
+    let outlineX = 0;
+    let outlineY = 0;
+    
+    // Update cursor position
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        
+        // Move dot immediately
+        cursorDot.style.left = mouseX + 'px';
+        cursorDot.style.top = mouseY + 'px';
+    });
+    
+    // Smooth outline animation
+    function animateOutline() {
+        outlineX += (mouseX - outlineX) * 0.15;
+        outlineY += (mouseY - outlineY) * 0.15;
+        
+        cursorOutline.style.left = outlineX + 'px';
+        cursorOutline.style.top = outlineY + 'px';
+        
+        requestAnimationFrame(animateOutline);
+    }
+    animateOutline();
+    
+    // Add hover effects
+    const hoverElements = document.querySelectorAll('a, button, .btn, input, textarea, .project-link');
+    
+    hoverElements.forEach(element => {
+        element.addEventListener('mouseenter', () => {
+            cursor.classList.add('hover');
+        });
+        
+        element.addEventListener('mouseleave', () => {
+            cursor.classList.remove('hover');
+        });
+    });
+    
+    // Click effect
+    document.addEventListener('mousedown', () => {
+        cursor.classList.add('click');
+    });
+    
+    document.addEventListener('mouseup', () => {
+        cursor.classList.remove('click');
+    });
+    
+    // Hide cursor when leaving window
+    document.addEventListener('mouseleave', () => {
+        cursor.style.opacity = '0';
+    });
+    
+    document.addEventListener('mouseenter', () => {
+        cursor.style.opacity = '1';
+    });
+}
+
+// ===============================
+// Fullscreen Project Cards
+// ===============================
+function initFullscreenProjects() {
+    const projectCards = document.querySelectorAll('.project-card-fullscreen');
+    const projectsHeader = document.querySelector('.projects-header');
     
     if (projectCards.length === 0) return;
     
-    // Create Intersection Observer for stacked card effect
+    // Create scroll observer for each card
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: [0, 0.25, 0.5, 0.75, 1]
+    };
+    
     const cardObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
-            if (entry.isIntersecting) {
-                // Add stagger animation
-                setTimeout(() => {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0) scale(1)';
-                }, index * 100);
+        entries.forEach(entry => {
+            const card = entry.target;
+            const cardIndex = parseInt(card.dataset.project);
+            
+            if (entry.intersectionRatio > 0.5) {
+                // Card is more than 50% visible
+                card.classList.add('active');
+                
+                // Hide header after first card
+                if (cardIndex > 1 && projectsHeader) {
+                    projectsHeader.classList.add('hidden');
+                }
+                
+                // Scale effect for cards
+                const scale = 0.9 + (entry.intersectionRatio * 0.1);
+                const opacity = 0.5 + (entry.intersectionRatio * 0.5);
+                
+                card.style.transform = `scale(${scale})`;
+                card.style.opacity = opacity;
+            } else {
+                card.classList.remove('active');
+                
+                // Show header for first card
+                if (cardIndex === 1 && projectsHeader && entry.intersectionRatio > 0) {
+                    projectsHeader.classList.remove('hidden');
+                }
+                
+                // Parallax effect for inactive cards
+                const translateY = (1 - entry.intersectionRatio) * 50;
+                card.style.transform = `translateY(${translateY}px) scale(0.95)`;
+                card.style.opacity = 0.8;
             }
         });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
+    }, observerOptions);
+    
+    // Observe all cards
+    projectCards.forEach(card => {
+        cardObserver.observe(card);
     });
     
-    // Set initial state and observe
-    projectCards.forEach((card, index) => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(50px) scale(0.95)';
-        card.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
-        cardObserver.observe(card);
+    // Smooth scroll behavior for project section
+    const projectSection = document.getElementById('projects');
+    if (projectSection) {
+        // Add smooth scrolling within project section
+        let isScrolling = false;
+        let scrollTimeout;
         
-        // Add hover parallax effect
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            
-            const rotateX = (y - centerY) / 20;
-            const rotateY = (centerX - x) / 20;
-            
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
-        });
-        
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
-        });
-    });
+        projectSection.addEventListener('wheel', (e) => {
+            if (!isScrolling) {
+                isScrolling = true;
+                
+                // Clear existing timeout
+                clearTimeout(scrollTimeout);
+                
+                // Set scrolling to false after scroll ends
+                scrollTimeout = setTimeout(() => {
+                    isScrolling = false;
+                }, 150);
+            }
+        }, { passive: true });
+    }
 }
 
 // ===============================
