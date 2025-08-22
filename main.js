@@ -99,6 +99,18 @@ function initNavigation() {
             }
         }
         
+        // Hide mobile menu on scroll up for mobile devices
+        if (window.innerWidth <= 768) {
+            if (currentScroll < lastScroll && currentScroll > 50) {
+                // Scrolling up - hide mobile menu if it's open
+                if (mobileMenu.classList.contains('active')) {
+                    mobileMenuToggle.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            }
+        }
+        
         lastScroll = currentScroll;
     });
     
