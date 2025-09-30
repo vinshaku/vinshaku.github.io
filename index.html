@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinay Sharma | Ruby on Rails Developer</title>
+    <meta name="description" content="Portfolio of Vinay Sharma, a Ruby on Rails developer building scalable & creative apps">
+    <meta name="keywords" content="Vinay Sharma, Ruby on Rails, Rails Developer, Full Stack Developer, Web Development">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+        <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  </head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">Loading Experience</div>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor">
+        <div class="cursor-dot"></div>
+        <div class="cursor-outline"></div>
+    </div>
+
+    <!-- Three.js Background Canvas -->
+    <canvas id="galaxy-canvas"></canvas>
+    
+    <!-- Wave Animation Canvas -->
+    <canvas id="wave-canvas"></canvas>
+    
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">VS</div>
+            <div class="nav-menu">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              </svg>
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+            </button>
+          </div>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="#about" class="mobile-nav-link">About</a>
+        <a href="#projects" class="mobile-nav-link">Projects</a>
+        <a href="#contact" class="mobile-nav-link">Contact</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <h1 id="hero-name" class="hero-name">
+                <span class="hero-text-animated">Vinay Sharma</span>
+            </h1>
+            <p class="hero-tagline">
+                <span class="fade-in-text">Ruby on Rails Developer</span>
+                <span class="separator">|</span>
+                <span class="fade-in-text delay-1">Building scalable & creative apps</span>
+            </p>
+            <div class="hero-cta">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-down"></div>
+      </div>
+    </section>
+
+      <!-- About Section -->
+    <section id="about" class="about section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="about-content glass-card">
+                <div class="about-grid">
+                    <div class="about-photo">
+                        <div class="photo-placeholder">
+                            <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="about-text">
+                        <h3>Hello! I'm Vinay Sharma</h3>
+                        <p>
+                            A passionate Ruby on Rails developer with over 5 years of experience building 
+                            robust, scalable web applications. I specialize in creating elegant solutions 
+                            to complex problems, with a focus on clean code and best practices.
+                        </p>
+                        <p>
+                            My journey in web development has taken me through various domains including 
+                            CRM systems, e-commerce platforms, ERP solutions, and more. I love working with 
+                            modern technologies and continuously learning new skills.
+                        </p>
+                        <div class="contact-info-mobile">
+                            <p><strong>📧</strong> vinaysharma.contact@gmail.com</p>
+                            <p><strong>📱</strong> +91 9974440354</p>
+                            <p><strong>📍</strong> Ahmedabad, India</p>
+                        </div>
+                        <div class="about-actions">
+                            <a href="https://linkedin.com/in/vinshaku" target="_blank" class="btn btn-social btn-linkedin">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                </svg>
+                                LinkedIn
+                            </a>
+                            <a href="https://github.com/vinshaku" target="_blank" class="btn btn-social btn-github">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                                GitHub
+                            </a>
+                            <a href="#" class="btn btn-social btn-resume">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14,2 14,8 20,8"></polyline>
+                                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                                    <polyline points="10,9 9,9 8,9"></polyline>
+                                </svg>
+                                Resume
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Experience Section -->
+    <section id="experience" class="experience section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Professional Experience</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="experience-grid">
+                <div class="experience-card glass-card">
+                    <div class="experience-header">
+                        <div class="experience-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                                <polyline points="3.27,6.96 12,12.01 20.73,6.96"></polyline>
+                                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                            </svg>
+                        </div>
+                        <div class="experience-content">
+                            <h3>Ruby On Rails Developer</h3>
+                            <div class="experience-meta">
+                                <span class="company">TechCompose Solutions</span>
+                                <span class="duration">07/2023 - Present</span>
+                                <span class="location">📍 Ahmedabad, India</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="experience-description">
+                        <ul>
+                            <li>Delivered features across POS, CRM, and e-commerce platforms as part of various client projects</li>
+                            <li>Built subsystems for the POS domain, including Superadmin panel, CRM, Marketplace, Kiosk, and Online Ordering</li>
+                            <li>Developed APIs for mobile apps and implemented report modules with filters and export/import features</li>
+                            <li>Implemented background jobs for email/SMS notifications, integrated payment gateways, and developed webhooks</li>
+                            <li>Participated in all development phases and deployed applications to Heroku and AWS</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-card glass-card">
+                    <div class="experience-header">
+                        <div class="experience-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                                <polyline points="3.27,6.96 12,12.01 20.73,6.96"></polyline>
+                                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                            </svg>
+                        </div>
+                        <div class="experience-content">
+                            <h3>Ruby On Rails Developer</h3>
+                            <div class="experience-meta">
+                                <span class="company">Bacancy Technology</span>
+                                <span class="duration">07/2020 - 07/2023</span>
+                                <span class="location">📍 Ahmedabad, India</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="experience-description">
+                        <ul>
+                            <li>Designed and implemented backend logic and API integrations for products in Real Estate, Inventory, and VoIP domains</li>
+                            <li>Upgraded a Rails 6 API app to Rails 7 within two weeks, resolving deployment and compatibility issues</li>
+                            <li>Integrated Stripe into the VoIP system and enhanced the billing module with service configurations</li>
+                            <li>Collaborated with VoIP developers to debug call data inconsistencies, improving system reliability</li>
+                            <li>Enhanced app performance by optimizing queries, adding indexes, caching responses, and managing background jobs</li>
+                            <li>Actively participated in code reviews, internal discussions, and mentoring sessions for junior team members</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-card glass-card">
+                    <div class="experience-header">
+                        <div class="experience-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                                <polyline points="3.27,6.96 12,12.01 20.73,6.96"></polyline>
+                                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                            </svg>
+                        </div>
+                        <div class="experience-content">
+                            <h3>Trainee Software Engineer</h3>
+                            <div class="experience-meta">
+                                <span class="company">Bacancy Technology</span>
+                                <span class="duration">01/2020 - 06/2020</span>
+                                <span class="location">📍 Ahmedabad, India</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="experience-description">
+                        <ul>
+                            <li>Supported senior engineers on live projects and contributed through feature development and bug fixing</li>
+                            <li>Developed demo apps including a resume builder and job portal using Rails, HTML, CSS, and jQuery</li>
+                            <li>Designed and managed PostgreSQL and MySQL databases for training projects</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Education</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="education-grid">
+                <div class="education-card glass-card">
+                    <div class="education-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                            <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                        </svg>
+                    </div>
+                    <h3>BE in Computer Engineering</h3>
+                    <p class="institution">VGEC, Ahmedabad, India</p>
+                    <p class="year">2017 - 2020</p>
+                </div>
+                <div class="education-card glass-card">
+                    <div class="education-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                            <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                        </svg>
+                    </div>
+                    <h3>Diploma in Computer Engineering</h3>
+                    <p class="institution">R.C.Technical Institute, Ahmedabad, India</p>
+                    <p class="year">2014 - 2017</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section id="awards" class="awards section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Awards & Recognition</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="awards-grid">
+                <div class="award-card glass-card">
+                    <div class="award-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                            <path d="M4 22h16"></path>
+                            <path d="M10 14.66V17c0 .55.45 1 1 1h2c.55 0 1-.45 1-1v-2.34"></path>
+                            <path d="M12 14.66V17c0 .55-.45 1-1 1H9c-.55 0-1-.45-1-1v-2.34"></path>
+                            <path d="M12 14.66V17c0 .55.45 1 1 1h2c.55 0 1-.45 1-1v-2.34"></path>
+                            <path d="M12 14.66V17c0 .55-.45 1-1 1H9c-.55 0-1-.45-1-1v-2.34"></path>
+                        </svg>
+                    </div>
+                    <h3>Team of the Quarter-4 (2021)</h3>
+                    <p class="company">Bacancy Technology</p>
+                </div>
+                <div class="award-card glass-card">
+                    <div class="award-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                            <path d="M4 22h16"></path>
+                            <path d="M10 14.66V17c0 .55.45 1 1 1h2c.55 0 1-.45 1-1v-2.34"></path>
+                            <path d="M12 14.66V17c0 .55-.45 1-1 1H9c-.55 0-1-.45-1-1v-2.34"></path>
+                            <path d="M12 14.66V17c0 .55.45 1 1 1h2c.55 0 1-.45 1-1v-2.34"></path>
+                            <path d="M12 14.66V17c0 .55-.45 1-1 1H9c-.55 0-1-.45-1-1v-2.34"></path>
+                        </svg>
+                    </div>
+                    <h3>Team of the Quarter-1 (2023)</h3>
+                    <p class="company">Bacancy Technology</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Skills Section -->
+    <section id="skills" class="skills section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category glass-card">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"></path>
+                            </svg>
+                        </div>
+                        <h3>Backend</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Ruby on Rails</span>
+                        <span class="skill-tag">API Design</span>
+                        <span class="skill-tag">RESTful Services</span>
+                        <span class="skill-tag">GraphQL</span>
+                        <span class="skill-tag">Hotwire & Stimulus</span>
+                    </div>
+                </div>
+                <div class="skill-category glass-card">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                            </svg>
+                        </div>
+                        <h3>Frontend</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">HTML/CSS</span>
+                        <span class="skill-tag">SCSS</span>
+                        <span class="skill-tag">jQuery</span>
+                        <span class="skill-tag">Bootstrap 4/5</span>
+                        <span class="skill-tag">JavaScript</span>
+                    </div>
+                </div>
+                <div class="skill-category glass-card">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 7V4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v3"></path>
+                                <path d="M9 20h6"></path>
+                                <path d="M12 4v16"></path>
+                            </svg>
+                        </div>
+                        <h3>Database</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">Redis</span>
+                    </div>
+                </div>
+                <div class="skill-category glass-card">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                            </svg>
+                        </div>
+                        <h3>Tools & Services</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Git & GitHub</span>
+                        <span class="skill-tag">AWS EC2 & S3</span>
+                        <span class="skill-tag">Heroku</span>
+                        <span class="skill-tag">Jira & Asana</span>
+                        <span class="skill-tag">RSpec</span>
+                        <span class="skill-tag">CI/CD</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Currently Learning Section -->
+    <section id="learning" class="learning section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Currently Learning</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="learning-content">
+                <div class="learning-card glass-card">
+                    <div class="learning-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 12l2 2 4-4"></path>
+                            <path d="M21 12c-1 0-2-1-2-2s1-2 2-2 2 1 2 2-1 2-2 2z"></path>
+                            <path d="M3 12c1 0 2-1 2-2s-1-2-2-2-2 1-2 2 1 2 2 2z"></path>
+                            <path d="M12 3c0 1-1 2-2 2s-2 1-2 2 1 2 2 2 2 1 2 2 1-2 2-2 2-1 2-2-1-2-2-2-2-1-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3>Expanding My Skills</h3>
+                    <p>Always learning new technologies to stay current with industry trends</p>
+                    <div class="learning-badges">
+                        <span class="learning-badge">Kafka</span>
+                        <span class="learning-badge">Hotwire</span>
+                        <span class="learning-badge">Stimulus</span>
+                        <span class="learning-badge">Docker</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+      <!-- Projects Section -->
+    <section id="projects" class="projects section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card glass-card">
+                    <div class="project-header">
+                        <div class="project-number">01</div>
+                        <div class="project-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3>CRM System</h3>
+                    <p class="project-description">
+                        Built comprehensive customer relationship management systems with advanced 
+                        contact management, lead tracking, and automated workflows. Integrated with 
+                        multiple third-party services for enhanced functionality.
+                    </p>
+                    <div class="project-tech">
+                        <span>Rails 7</span>
+                        <span>PostgreSQL</span>
+                        <span>Redis</span>
+                        <span>Sidekiq</span>
+                    </div>
+                    <a href="#" class="project-link">Learn More →</a>
+                </div>
+                
+                <div class="project-card glass-card">
+                    <div class="project-header">
+                        <div class="project-number">02</div>
+                        <div class="project-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                                <path d="M9 14l2 2 4-4"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3>E-Commerce Platform</h3>
+                    <p class="project-description">
+                        Developed scalable e-commerce solutions with advanced inventory management, 
+                        payment gateway integrations, and real-time order tracking systems. 
+                        Optimized for high-traffic scenarios.
+                    </p>
+                    <div class="project-tech">
+                        <span>Rails API</span>
+                        <span>Stripe</span>
+                        <span>AWS S3</span>
+                        <span>ElasticSearch</span>
+                    </div>
+                    <a href="#" class="project-link">Learn More →</a>
+                </div>
+                
+                <div class="project-card glass-card">
+                    <div class="project-header">
+                        <div class="project-number">03</div>
+                        <div class="project-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                                <polyline points="3.27,6.96 12,12.01 20.73,6.96"></polyline>
+                                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3>ERP Solution</h3>
+                    <p class="project-description">
+                        Created enterprise resource planning systems with modules for accounting, 
+                        human resources, inventory, and project management. Implemented complex 
+                        business logic and reporting capabilities.
+                    </p>
+                    <div class="project-tech">
+                        <span>Rails</span>
+                        <span>PostgreSQL</span>
+                        <span>Kafka</span>
+                        <span>Docker</span>
+                    </div>
+                    <a href="#" class="project-link">Learn More →</a>
+                </div>
+                
+                <div class="project-card glass-card">
+                    <div class="project-header">
+                        <div class="project-number">04</div>
+                        <div class="project-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3>Social Media Features</h3>
+                    <p class="project-description">
+                        Implemented social networking features including real-time messaging, 
+                        activity feeds, notification systems, and user engagement analytics. 
+                        Built with scalability and performance in mind.
+                    </p>
+                    <div class="project-tech">
+                        <span>ActionCable</span>
+                        <span>Redis</span>
+                        <span>WebSockets</span>
+                        <span>PostgreSQL</span>
+                    </div>
+                    <a href="#" class="project-link">Learn More →</a>
+                </div>
+                
+                <div class="project-card glass-card">
+                    <div class="project-header">
+                        <div class="project-number">05</div>
+                        <div class="project-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3>Finance App</h3>
+                    <p class="project-description">
+                        Developed financial management applications with features for budgeting, 
+                        expense tracking, invoicing, and financial reporting. Ensured high security 
+                        standards and compliance with financial regulations.
+                    </p>
+                    <div class="project-tech">
+                        <span>Rails</span>
+                        <span>Plaid API</span>
+                        <span>Encryption</span>
+                        <span>Charts.js</span>
+                    </div>
+                    <a href="#" class="project-link">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get in Touch</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info glass-card">
+                    <h3>Let's Create Something Amazing</h3>
+                    <p>
+                        I'm always interested in hearing about new projects and opportunities. 
+                        Whether you have a question or just want to say hi, feel free to reach out!
+                    </p>
+                    <div class="contact-links">
+                        <a href="https://github.com/vinshaku" target="_blank" class="social-link">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                            GitHub
+                        </a>
+                        <a href="https://linkedin.com/in/vinshaku" target="_blank" class="social-link">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                            LinkedIn
+                        </a>
+                        <a href="https://twitter.com/vinshaku" target="_blank" class="social-link">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                            Twitter
+                        </a>
+                    </div>
+                </div>
+                <form class="contact-form glass-card" id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+        </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+                    <button type="submit" class="btn btn-primary btn-submit">Send Message</button>
+                    <div class="form-status" id="form-status"></div>
+                </form>
+          </div>
+        </div>
+      </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Vinay Sharma. Built with passion and Three.js</p>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <!-- <script src="galaxy.js"></script> -->
+    <script src="waves.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
