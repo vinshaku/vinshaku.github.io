@@ -4,8 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vinay Sharma | Ruby on Rails Developer</title>
-    <meta name="description" content="Portfolio of Vinay Sharma, a Ruby on Rails developer building scalable & creative apps">
-    <meta name="keywords" content="Vinay Sharma, Ruby on Rails, Rails Developer, Full Stack Developer, Web Development">
+    <meta name="description" content="Vinay Sharma - Ruby on Rails Developer with 5+ years experience building web applications and APIs.">
+    <meta name="keywords" content="Vinay Sharma, Ruby on Rails Developer, Web Development, Ahmedabad Developer">
+    <meta name="author" content="Vinay Sharma">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vinshaku.github.io/">
+    <meta property="og:title" content="Vinay Sharma | Ruby on Rails Developer">
+    <meta property="og:description" content="Ruby on Rails Developer with 5+ years experience building web applications and APIs.">
+    <meta property="og:image" content="https://vinshaku.github.io/og-image.jpg">
+    <meta property="og:site_name" content="Vinay Sharma Portfolio">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://vinshaku.github.io/">
+    <meta property="twitter:title" content="Vinay Sharma | Ruby on Rails Developer">
+    <meta property="twitter:description" content="Ruby on Rails Developer with 5+ years experience building web applications and APIs.">
+    <meta property="twitter:image" content="https://vinshaku.github.io/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,8 +41,12 @@
     <!-- Custom Styles -->
     <link rel="stylesheet" href="styles.css">
     
-        <!-- Three.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Preload critical resources -->
+    <link rel="preload" href="main.js" as="script">
+    <link rel="preload" href="waves.js" as="script">
+    
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
   </head>
 <body>
     <!-- Loading Screen -->
@@ -77,62 +107,169 @@
         <a href="#about" class="mobile-nav-link">About</a>
         <a href="#projects" class="mobile-nav-link">Projects</a>
         <a href="#contact" class="mobile-nav-link">Contact</a>
+        <button id="mobile-theme-toggle" class="mobile-theme-toggle" aria-label="Toggle theme">
+            <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+        </button>
     </div>
 
     <!-- Hero Section -->
-    <section id="hero" class="hero">
-        <div class="hero-content">
-            <h1 id="hero-name" class="hero-name">
-                <span class="hero-text-animated">Vinay Sharma</span>
-            </h1>
-            <p class="hero-tagline">
-                <span class="fade-in-text">Ruby on Rails Developer</span>
-                <span class="separator">|</span>
-                <span class="fade-in-text delay-1">Building scalable & creative apps</span>
-            </p>
-            <div class="hero-cta">
-                <a href="#projects" class="btn btn-primary">View Projects</a>
-                <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+    <section id="hero" class="hero" role="banner" aria-label="Hero section">
+        <!-- 3D Background Elements -->
+        <div class="hero-3d-bg">
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
             </div>
         </div>
-        <div class="scroll-indicator">
-            <div class="scroll-down"></div>
-      </div>
+        
+        <!-- Glassmorphism Container -->
+        <div class="hero-glass-container">
+            <div class="hero-content">
+                <!-- Animated Text Container -->
+                <div class="hero-text-container">
+                    <div class="hero-badge-modern">
+                        <span class="badge-glow"></span>
+                        <span class="badge-text">Available for Work</span>
+                    </div>
+                    
+                    <h1 id="hero-name" class="hero-name-modern">
+                        <span class="hero-text-animated" data-text="Vinay Sharma">Vinay Sharma</span>
+                        <div class="hero-text-bg"></div>
+                    </h1>
+                    
+                    <div class="hero-tagline-modern">
+                        <span class="tagline-line fade-in-text">
+                            <span class="tagline-text">Ruby on Rails Developer</span>
+                            <span class="tagline-glow"></span>
+                        </span>
+                        <span class="tagline-line fade-in-text delay-1">
+                            <span class="tagline-text">Building Modern Web Apps</span>
+                            <span class="tagline-glow"></span>
+                        </span>
+                    </div>
+                    
+                    <p class="hero-description-modern fade-in-text delay-2">
+                        Crafting digital experiences with 5+ years of expertise in 
+                        <span class="highlight-text">Ruby on Rails</span>, 
+                        <span class="highlight-text">PostgreSQL</span>, and 
+                        <span class="highlight-text">modern web technologies</span>.
+                    </p>
+                </div>
+                
+                <!-- Modern CTA Buttons -->
+                <div class="hero-cta-modern" role="group" aria-label="Call to action buttons">
+                    <a href="#projects" class="btn-modern btn-primary-modern" aria-label="View my portfolio projects">
+                        <span class="btn-text">Explore Work</span>
+                        <span class="btn-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M7 17L17 7M17 7H7M17 7V17"></path>
+                            </svg>
+                        </span>
+                        <span class="btn-glow"></span>
+                    </a>
+                    <a href="#contact" class="btn-modern btn-secondary-modern" aria-label="Get in touch with me">
+                        <span class="btn-text">Let's Connect</span>
+                        <span class="btn-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </span>
+                        <span class="btn-glow"></span>
+                    </a>
+                </div>
+                
+                <!-- Modern Stats -->
+                <div class="hero-stats-modern">
+                    <div class="stat-item-modern">
+                        <div class="stat-number-modern" data-count="5">0</div>
+                        <div class="stat-label-modern">Years Experience</div>
+                    </div>
+                    <div class="stat-item-modern">
+                        <div class="stat-number-modern" data-count="50">0</div>
+                        <div class="stat-label-modern">Projects Delivered</div>
+                    </div>
+                    <div class="stat-item-modern">
+                        <div class="stat-number-modern" data-count="100">0</div>
+                        <div class="stat-label-modern">Client Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Modern Scroll Indicator -->
+        <div class="scroll-indicator-modern" role="button" tabindex="0" aria-label="Scroll down to explore more content">
+            <div class="scroll-line"></div>
+            <div class="scroll-dot"></div>
+            <span class="scroll-text-modern">Scroll to explore</span>
+        </div>
+        
     </section>
 
       <!-- About Section -->
-    <section id="about" class="about section">
+    <section id="about" class="about section" role="main" aria-label="About me section">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header animate-on-scroll">
                 <h2 class="section-title">About Me</h2>
-                <div class="section-line"></div>
+                <div class="section-line" aria-hidden="true"></div>
             </div>
-            <div class="about-content glass-card">
+            <div class="about-content glass-card animate-on-scroll-scale animate-stagger-1">
                 <div class="about-grid">
-                    <div class="about-photo">
-                        <div class="photo-placeholder">
+                    <div class="about-photo animate-on-scroll-left animate-stagger-2">
+                        <div class="photo-placeholder modern-photo">
+                            <div class="photo-glow"></div>
                             <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
                                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                                 <circle cx="12" cy="7" r="4"></circle>
                             </svg>
                         </div>
                     </div>
-                    <div class="about-text">
-                        <h3>Hello! I'm Vinay Sharma</h3>
-                        <p>
-                            A passionate Ruby on Rails developer with over 5 years of experience building 
-                            robust, scalable web applications. I specialize in creating elegant solutions 
-                            to complex problems, with a focus on clean code and best practices.
+                    <div class="about-text animate-on-scroll-right animate-stagger-3">
+                        <h3 class="about-title-modern">Hello! I'm <span class="name-highlight">Vinay Sharma</span></h3>
+                        <p class="about-intro">
+                            A <strong class="highlight-text">Ruby on Rails developer</strong> with 5+ years of experience building 
+                            web applications. I focus on clean code and practical solutions.
                         </p>
                         <p>
-                            My journey in web development has taken me through various domains including 
-                            CRM systems, e-commerce platforms, ERP solutions, and more. I love working with 
-                            modern technologies and continuously learning new skills.
+                            I've worked on various projects including CRM systems, e-commerce platforms, 
+                            and ERP solutions. I enjoy working with modern technologies and learning new skills.
                         </p>
-                        <div class="contact-info-mobile">
-                            <p><strong>📧</strong> vinaysharma.contact@gmail.com</p>
-                            <p><strong>📱</strong> +91 9974440354</p>
-                            <p><strong>📍</strong> Ahmedabad, India</p>
+                        <div class="about-highlights">
+                            <div class="highlight-item animate-on-scroll animate-stagger-1">
+                                <div class="highlight-icon">💻</div>
+                                <div class="highlight-text">
+                                    <h4>Backend Development</h4>
+                                    <p>Ruby on Rails, APIs, and database design</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item animate-on-scroll animate-stagger-2">
+                                <div class="highlight-icon">🔧</div>
+                                <div class="highlight-text">
+                                    <h4>Problem Solving</h4>
+                                    <p>Debugging, optimization, and finding practical solutions</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item animate-on-scroll animate-stagger-3">
+                                <div class="highlight-icon">📱</div>
+                                <div class="highlight-text">
+                                    <h4>Full-Stack</h4>
+                                    <p>Frontend and backend development</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -284,9 +421,8 @@
                     <div class="project-content">
                         <h3 class="project-title">CRM System</h3>
                         <p class="project-description">
-                            Built comprehensive customer relationship management systems with advanced 
-                            contact management, lead tracking, and automated workflows. Integrated with 
-                            multiple third-party services for enhanced functionality.
+                            Customer relationship management system with contact management, 
+                            lead tracking, and automated workflows. Integrated with third-party services.
                         </p>
                         <div class="project-tech">
                             <span>Rails 7</span>
@@ -294,7 +430,20 @@
                             <span>Redis</span>
                             <span>Sidekiq</span>
                         </div>
-                        <a href="#" class="project-link">Learn More →</a>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <span>View Project</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M7 17L17 7M17 7H7M17 7V17"></path>
+                                </svg>
+                            </a>
+                            <a href="#" class="project-link secondary">
+                                <span>GitHub</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                </svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 
@@ -303,9 +452,8 @@
                     <div class="project-content">
                         <h3 class="project-title">E-Commerce Platform</h3>
                         <p class="project-description">
-                            Developed scalable e-commerce solutions with advanced inventory management, 
-                            payment gateway integrations, and real-time order tracking systems. 
-                            Optimized for high-traffic scenarios.
+                            E-commerce solution with inventory management, payment integration, 
+                            and order tracking. Built with mobile-first design.
                         </p>
                         <div class="project-tech">
                             <span>Rails API</span>
@@ -313,7 +461,20 @@
                             <span>AWS S3</span>
                             <span>ElasticSearch</span>
                         </div>
-                        <a href="#" class="project-link">Learn More →</a>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <span>View Project</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M7 17L17 7M17 7H7M17 7V17"></path>
+                                </svg>
+                            </a>
+                            <a href="#" class="project-link secondary">
+                                <span>GitHub</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                </svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 
@@ -322,28 +483,39 @@
                     <div class="project-content">
                         <h3 class="project-title">ERP Solution</h3>
                         <p class="project-description">
-                            Created enterprise resource planning systems with modules for accounting, 
-                            human resources, inventory, and project management. Implemented complex 
-                            business logic and reporting capabilities.
+                            Enterprise resource planning system with modules for accounting, 
+                            human resources, inventory, and project management.
                         </p>
                         <div class="project-tech">
                             <span>Rails</span>
                             <span>PostgreSQL</span>
                             <span>Kafka</span>
                             <span>Docker</span>
-        </div>
-                        <a href="#" class="project-link">Learn More →</a>
-            </div>
-          </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <span>View Project</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M7 17L17 7M17 7H7M17 7V17"></path>
+                                </svg>
+                            </a>
+                            <a href="#" class="project-link secondary">
+                                <span>GitHub</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
                 
                 <div class="project-card-fullscreen" data-project="4">
                     <div class="project-number">04</div>
                     <div class="project-content">
-                        <h3 class="project-title">Social Media Features</h3>
+                        <h3 class="project-title">Social Features</h3>
                         <p class="project-description">
-                            Implemented social networking features including real-time messaging, 
-                            activity feeds, notification systems, and user engagement analytics. 
-                            Built with scalability and performance in mind.
+                            Social networking features including real-time messaging, 
+                            activity feeds, and notification systems.
                         </p>
                         <div class="project-tech">
                             <span>ActionCable</span>
@@ -351,28 +523,53 @@
                             <span>WebSockets</span>
                             <span>PostgreSQL</span>
                         </div>
-                        <a href="#" class="project-link">Learn More →</a>
-            </div>
-          </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <span>View Project</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M7 17L17 7M17 7H7M17 7V17"></path>
+                                </svg>
+                            </a>
+                            <a href="#" class="project-link secondary">
+                                <span>GitHub</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
                 
                 <div class="project-card-fullscreen" data-project="5">
                     <div class="project-number">05</div>
                     <div class="project-content">
                         <h3 class="project-title">Finance App</h3>
                         <p class="project-description">
-                            Developed financial management applications with features for budgeting, 
-                            expense tracking, invoicing, and financial reporting. Ensured high security 
-                            standards and compliance with financial regulations.
+                            Financial management application with budgeting, expense tracking, 
+                            invoicing, and financial reporting features.
                         </p>
                         <div class="project-tech">
                             <span>Rails</span>
                             <span>Plaid API</span>
                             <span>Encryption</span>
                             <span>Charts.js</span>
-            </div>
-                        <a href="#" class="project-link">Learn More →</a>
-          </div>
-        </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <span>View Project</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M7 17L17 7M17 7H7M17 7V17"></path>
+                                </svg>
+                            </a>
+                            <a href="#" class="project-link secondary">
+                                <span>GitHub</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
                 
           </div>
         </div>
@@ -381,35 +578,68 @@
     <!-- Contact Section -->
     <section id="contact" class="contact section">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Get in Touch</h2>
-                <div class="section-line"></div>
-            </div>
             <div class="contact-content">
                 <div class="contact-info glass-card">
-                    <h3>Let's Create Something Amazing</h3>
-                    <p>
-                        I'm always interested in hearing about new projects and opportunities. 
-                        Whether you have a question or just want to say hi, feel free to reach out!
+                    <h3>Get in Touch</h3>
+                    <p class="contact-intro">
+                        I'm interested in new projects and opportunities. 
+                        Feel free to reach out!
                     </p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p>vinaysharma.contact@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                </svg>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone</h4>
+                                <p>+91 9974440354</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Location</h4>
+                                <p>Ahmedabad, India</p>
+                            </div>
+                        </div>
+                    </div>
                     <div class="contact-links">
                         <a href="https://github.com/vinshaku" target="_blank" class="social-link">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                             </svg>
-                            GitHub
+                            <span>GitHub</span>
                         </a>
                         <a href="https://linkedin.com/in/vinshaku" target="_blank" class="social-link">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                             </svg>
-                            LinkedIn
+                            <span>LinkedIn</span>
                         </a>
                         <a href="https://twitter.com/vinshaku" target="_blank" class="social-link">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
                             </svg>
-                            Twitter
+                            <span>Twitter</span>
                         </a>
                     </div>
                 </div>
@@ -442,7 +672,7 @@
 
     <!-- Scripts -->
     <!-- <script src="galaxy.js"></script> -->
-    <script src="waves.js"></script>
-    <script src="main.js"></script>
+    <script src="waves.js" defer></script>
+    <script src="main.js" defer></script>
   </body>
 </html>

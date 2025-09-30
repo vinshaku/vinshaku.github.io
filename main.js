@@ -13,6 +13,21 @@ document.addEventListener('DOMContentLoaded', function() {
     initFullscreenProjects();
     initContactForm();
     initAnimations();
+    initScrollAnimations();
+    
+    // Scroll indicator click handler
+    const scrollIndicator = document.querySelector('.scroll-indicator-modern');
+    if (scrollIndicator) {
+        scrollIndicator.addEventListener('click', () => {
+            const aboutSection = document.querySelector('#about');
+            if (aboutSection) {
+                aboutSection.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    }
 });
 
 // ===============================
@@ -28,6 +43,18 @@ function initTheme() {
     
     // Theme toggle handler
     themeToggle.addEventListener('click', () => {
+        toggleTheme();
+    });
+    
+    // Mobile theme toggle handler
+    const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+    if (mobileThemeToggle) {
+        mobileThemeToggle.addEventListener('click', () => {
+            toggleTheme();
+        });
+    }
+    
+    function toggleTheme() {
         const currentTheme = html.getAttribute('data-theme');
         const newTheme = currentTheme === 'light' ? 'dark' : 'light';
         
@@ -47,7 +74,7 @@ function initTheme() {
         setTimeout(() => {
             html.style.transition = '';
         }, 500);
-    });
+    }
 }
 
 // ===============================
@@ -63,8 +90,8 @@ function initLoadingScreen() {
         // Remove from DOM after transition
         setTimeout(() => {
             loadingScreen.remove();
-        }, 500);
-    }, 2500);
+        }, 100);
+    }, 200);
 }
 
 // ===============================
@@ -584,3 +611,63 @@ function monitorPerformance() {
 if (window.requestAnimationFrame) {
     monitorPerformance();
 }
+
+// ===============================
+// Scroll Animations
+// ===============================
+function initScrollAnimations() {
+    const elements = document.querySelectorAll('.animate-on-scroll, .animate-on-scroll-left, .animate-on-scroll-right, .animate-on-scroll-scale');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animated');
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    elements.forEach(element => {
+        observer.observe(element);
+    });
+}
+
+// Counter animation for stats
+function animateCounters() {
+    const counters = document.querySelectorAll('.stat-number-modern');
+    
+    counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-count'));
+        const duration = 2000; // 2 seconds
+        const increment = target / (duration / 16); // 60fps
+        let current = 0;
+        
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+            }
+            counter.textContent = Math.floor(current);
+        }, 16);
+    });
+}
+
+// Start counter animation when hero section is visible
+const heroObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            setTimeout(animateCounters, 1000); // Start after 1 second
+            heroObserver.unobserve(entry.target);
+        }
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const heroSection = document.querySelector('.hero');
+    if (heroSection) {
+        heroObserver.observe(heroSection);
+    }
+});

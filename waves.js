@@ -10,7 +10,7 @@ class WaveAnimation {
         this.numberOfWaves = 4;
         this.time = 0;
         this.animationId = null;
-        
+
         // Colors based on theme
         this.colors = {
             light: [
@@ -26,21 +26,21 @@ class WaveAnimation {
                 'rgba(245, 224, 220, 0.1)'   // Mocha Rosewater
             ]
         };
-        
+
         this.init();
     }
-    
+
     init() {
         this.setCanvasSize();
         this.createWaves();
         this.animate();
-        
+
         // Handle resize
         window.addEventListener('resize', () => {
             this.setCanvasSize();
             this.createWaves();
         });
-        
+
         // Handle theme changes
         const observer = new MutationObserver(() => {
             this.createWaves();
@@ -50,17 +50,17 @@ class WaveAnimation {
             attributeFilter: ['data-theme']
         });
     }
-    
+
     setCanvasSize() {
         this.canvas.width = window.innerWidth;
         this.canvas.height = window.innerHeight;
     }
-    
+
     createWaves() {
         this.waves = [];
         const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
         const colorPalette = isDark ? this.colors.dark : this.colors.light;
-        
+
         for (let i = 0; i < this.numberOfWaves; i++) {
             this.waves.push({
                 y: this.canvas.height * 0.5,
@@ -72,50 +72,50 @@ class WaveAnimation {
             });
         }
     }
-    
+
     drawWave(wave) {
         this.ctx.beginPath();
         this.ctx.moveTo(0, this.canvas.height);
-        
+
         // Draw wave using sine function
         for (let x = 0; x <= this.canvas.width; x += 5) {
-            const y = wave.y + 
-                      Math.sin(x * wave.frequency + this.time * wave.speed + wave.phase) * wave.amplitude +
-                      Math.sin(x * wave.frequency * 2 + this.time * wave.speed * 0.5) * wave.amplitude * 0.3;
-            
+            const y = wave.y +
+                Math.sin(x * wave.frequency + this.time * wave.speed + wave.phase) * wave.amplitude +
+                Math.sin(x * wave.frequency * 2 + this.time * wave.speed * 0.5) * wave.amplitude * 0.3;
+
             if (x === 0) {
                 this.ctx.moveTo(x, y);
             } else {
                 this.ctx.lineTo(x, y);
             }
         }
-        
+
         // Complete the path
         this.ctx.lineTo(this.canvas.width, this.canvas.height);
         this.ctx.lineTo(0, this.canvas.height);
         this.ctx.closePath();
-        
+
         // Create gradient
         const gradient = this.ctx.createLinearGradient(0, wave.y - wave.amplitude, 0, this.canvas.height);
         gradient.addColorStop(0, wave.color);
         gradient.addColorStop(1, 'transparent');
-        
+
         this.ctx.fillStyle = gradient;
         this.ctx.fill();
     }
-    
+
     animate() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        
+
         // Draw all waves
         this.waves.forEach(wave => {
             this.drawWave(wave);
         });
-        
+
         this.time++;
         this.animationId = requestAnimationFrame(() => this.animate());
     }
-    
+
     destroy() {
         if (this.animationId) {
             cancelAnimationFrame(this.animationId);
@@ -131,28 +131,28 @@ class GradientWaves {
         this.gradients = [];
         this.time = 0;
         this.animationId = null;
-        
+
         this.init();
     }
-    
+
     init() {
         this.setCanvasSize();
         this.animate();
-        
+
         window.addEventListener('resize', () => {
             this.setCanvasSize();
         });
     }
-    
+
     setCanvasSize() {
         this.canvas.width = window.innerWidth;
         this.canvas.height = window.innerHeight;
     }
-    
+
     createGradient(offset) {
         const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
         const gradient = this.ctx.createLinearGradient(0, 0, this.canvas.width, this.canvas.height);
-        
+
         if (isDark) {
             gradient.addColorStop(0, `hsla(217, 91%, 75%, ${0.05 + Math.sin(this.time * 0.001 + offset) * 0.03})`);
             gradient.addColorStop(0.5, `hsla(232, 97%, 85%, ${0.05 + Math.cos(this.time * 0.001 + offset) * 0.03})`);
@@ -162,41 +162,41 @@ class GradientWaves {
             gradient.addColorStop(0.5, `hsla(232, 97%, 72%, ${0.03 + Math.cos(this.time * 0.001 + offset) * 0.02})`);
             gradient.addColorStop(1, `hsla(267, 84%, 58%, ${0.03 + Math.sin(this.time * 0.001 + offset + Math.PI) * 0.02})`);
         }
-        
+
         return gradient;
     }
-    
+
     drawMorphingGradient() {
         // Clear canvas
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        
+
         // Draw multiple gradient layers
         for (let i = 0; i < 3; i++) {
             this.ctx.save();
-            
+
             // Create transformation for wave effect
             const scale = 1 + Math.sin(this.time * 0.0005 + i * Math.PI * 0.5) * 0.1;
             const translateX = Math.sin(this.time * 0.0003 + i) * 50;
             const translateY = Math.cos(this.time * 0.0004 + i) * 30;
-            
+
             this.ctx.translate(this.canvas.width / 2 + translateX, this.canvas.height / 2 + translateY);
             this.ctx.scale(scale, scale);
             this.ctx.translate(-this.canvas.width / 2, -this.canvas.height / 2);
-            
+
             // Draw gradient
             this.ctx.fillStyle = this.createGradient(i * Math.PI * 0.66);
             this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
-            
+
             this.ctx.restore();
         }
     }
-    
+
     animate() {
         this.drawMorphingGradient();
         this.time++;
         this.animationId = requestAnimationFrame(() => this.animate());
     }
-    
+
     destroy() {
         if (this.animationId) {
             cancelAnimationFrame(this.animationId);
