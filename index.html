@@ -1,657 +1,1112 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vinay Sharma | Ruby on Rails Developer</title>
-    <meta name="description" content="Portfolio of Vinay Sharma, a Ruby on Rails developer building scalable & creative apps">
-    <meta name="keywords" content="Vinay Sharma, Ruby on Rails, Rails Developer, Full Stack Developer, Web Development">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="styles.css">
-    
-        <!-- Three.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-0553E3EX8G"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-0553E3EX8G");
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vinay Sharma | Ruby on Rails Developer (RoR) | vinshaku</title>
+    <meta
+      name="description"
+      content="Portfolio of Vinay Sharma, a Ruby on Rails (RoR) developer based in India. Explore projects, tech stack, and experience. Also known as vinshaku on GitHub."
+    />
+    <meta
+      name="keywords"
+      content="vinay sharma, ruby on rails developer, rails developer, ROR developer india, vinshaku, vinshaku.com, backend developer, github, ruby developer india, rails programmer"
+    />
+    <meta name="author" content="Vinay Sharma" />
+    <link rel="canonical" href="https://vinshaku.com/" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              dark: "#0A0A0A",
+              light: "#F5F5F5",
+              "dark-text": "#E5E5E5",
+              "light-text": "#1A1A1A",
+              "dark-card": "#1A1A1A",
+              "light-card": "#FFFFFF",
+              "dark-border": "#2A2A2A",
+              "light-border": "#E0E0E0",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      .custom-cursor {
+        position: fixed;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #1a1a1a;
+        mix-blend-mode: difference;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+        transition: width 0.2s, height 0.2s;
+        z-index: 9999;
+      }
+      .custom-cursor.hover {
+        width: 40px;
+        height: 40px;
+      }
+      .dark .custom-cursor {
+        background-color: white;
+      }
+      .nav-blur {
+        background: rgba(245, 245, 245, 0.7);
+        backdrop-filter: blur(10px);
+      }
+      .dark .nav-blur {
+        background: rgba(10, 10, 10, 0.7);
+      }
+      .nav-link.active {
+        color: #1a1a1a;
+      }
+      .dark .nav-link.active {
+        color: #ffffff;
+      }
+      .hero-text {
+        font-size: clamp(2.5rem, 10vw, 8rem);
+      }
+      .card-hover:hover img {
+        transform: scale(1.1);
+      }
+      .project-image-container {
+        overflow: hidden;
+      }
+      .project-image-container img {
+        transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .marquee {
+        overflow: hidden;
+        white-space: nowrap;
+      }
+      .marquee-content {
+        display: inline-block;
+        animation: marquee 30s linear infinite;
+      }
+      @keyframes marquee {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+      .reveal-line {
+        overflow: hidden;
+      }
+      .reveal-line > span {
+        display: inline-block;
+      }
+
+      /* --- FIXED MOBILE MENU STYLES --- */
+      #mobile-menu {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: all 0.3s ease-in-out;
+        transform: translateY(0);
+      }
+      #mobile-menu.active {
+        max-height: 400px;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Mobile menu button animation */
+      .mobile-menu-btn {
+        transition: transform 0.3s ease;
+      }
+      .mobile-menu-btn.active {
+        transform: rotate(90deg);
+      }
+
+      /* Hamburger to X animation */
+      .hamburger {
+        width: 24px;
+        height: 24px;
+        position: relative;
+        transform: rotate(0deg);
+        transition: 0.5s ease-in-out;
+        cursor: pointer;
+      }
+      .hamburger span {
+        display: block;
+        position: absolute;
+        height: 3px;
+        width: 100%;
+        background: currentColor;
+        border-radius: 3px;
+        opacity: 1;
+        left: 0;
+        transform: rotate(0deg);
+        transition: 0.25s ease-in-out;
+      }
+      .hamburger span:nth-child(1) {
+        top: 0px;
+      }
+      .hamburger span:nth-child(2) {
+        top: 9px;
+      }
+      .hamburger span:nth-child(3) {
+        top: 18px;
+      }
+      .hamburger.active span:nth-child(1) {
+        top: 9px;
+        transform: rotate(135deg);
+      }
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+        left: -60px;
+      }
+      .hamburger.active span:nth-child(3) {
+        top: 9px;
+        transform: rotate(-135deg);
+      }
+
+      /* --- TIMELINE --- */
+      .timeline-container {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .timeline-container::after {
+        content: "";
+        position: absolute;
+        width: 3px;
+        background-color: #e0e0e0;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -1.5px;
+      }
+      .dark .timeline-container::after {
+        background-color: #2a2a2a;
+      }
+      .timeline-item {
+        padding: 10px 40px;
+        position: relative;
+        width: 50%;
+      }
+      .timeline-item::after {
+        content: attr(data-year);
+        position: absolute;
+        top: 15px;
+        right: -75px;
+        transform: translateX(50%);
+        background-color: #1a1a1a;
+        color: #f5f5f5;
+        border-radius: 20px;
+        padding: 8px 16px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        z-index: 10;
+        white-space: nowrap;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        border: 3px solid #f5f5f5;
+      }
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        top: 28px;
+        right: -22px;
+        width: 12px;
+        height: 12px;
+        background-color: #1a1a1a;
+        border: 3px solid #f5f5f5;
+        border-radius: 50%;
+        z-index: 11;
+      }
+      .dark .timeline-item::after {
+        background-color: #e5e5e5;
+        color: #0a0a0a;
+        border-color: #0a0a0a;
+      }
+      .dark .timeline-item::before {
+        background-color: #e5e5e5;
+        border-color: #0a0a0a;
+      }
+      .left::before {
+        right: -22px;
+      }
+      .right::before {
+        left: -22px;
+        right: auto;
+      }
+      .dark .timeline-item::after {
+        background-color: #e5e5e5;
+        color: #0a0a0a;
+      }
+      .left {
+        left: 0;
+      }
+      .right {
+        left: 50%;
+      }
+      .timeline-item.right::after {
+        left: -75px;
+        right: auto;
+        transform: translateX(-50%);
+      }
+      .timeline-item.right::before {
+        left: -22px;
+        right: auto;
+      }
+      .timeline-content {
+        padding: 20px;
+        position: relative;
+        border-radius: 0.75rem;
+      }
+      @media screen and (max-width: 768px) {
+        .timeline-container::after {
+          left: 25px;
+        }
+        .timeline-item {
+          width: 100%;
+          padding-left: 60px;
+          padding-right: 20px;
+        }
+        .timeline-item::after {
+          left: 25px;
+          top: 5px;
+          right: auto;
+          transform: translateX(-50%);
+          font-size: 0.65rem;
+          padding: 6px 12px;
+          white-space: nowrap;
+          z-index: 10;
+          min-width: max-content;
+          border: 2px solid #f5f5f5;
+        }
+        .timeline-item::before {
+          left: 25px;
+          top: 20px;
+          right: auto;
+          transform: translateX(-50%);
+          width: 10px;
+          height: 10px;
+          border: 2px solid #f5f5f5;
+        }
+        .dark .timeline-item::after {
+          border-color: #0a0a0a;
+        }
+        .dark .timeline-item::before {
+          border-color: #0a0a0a;
+        }
+        .left::after,
+        .right::after {
+          left: 25px;
+          transform: translateX(-50%);
+        }
+        .left::before,
+        .right::before {
+          left: 25px;
+          transform: translateX(-50%);
+        }
+        .right {
+          left: 0%;
+        }
+        .timeline-content {
+          margin-top: 30px;
+          position: relative;
+          z-index: 1;
+        }
+      }
+    </style>
   </head>
-<body>
-    <!-- Loading Screen -->
-    <div id="loading-screen" class="loading-screen">
-        <div class="loading-content">
-            <div class="loading-spinner"></div>
-            <div class="loading-text">Loading Experience</div>
-        </div>
-    </div>
+  <body
+    class="bg-light text-light-text dark:bg-dark dark:text-dark-text antialiased"
+  >
+    <div class="custom-cursor"></div>
 
-    <!-- Custom Cursor -->
-    <div class="custom-cursor">
-        <div class="cursor-dot"></div>
-        <div class="cursor-outline"></div>
-    </div>
+    <!-- Navbar -->
+    <nav
+      id="navbar"
+      class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+    >
+      <div class="container mx-auto px-6 py-5">
+        <div class="flex justify-between items-center">
+          <a href="#home" class="text-2xl font-bold z-50 relative"
+            >Vinay Sharma</a
+          >
 
-    <!-- Three.js Background Canvas -->
-    <canvas id="galaxy-canvas"></canvas>
-    
-    <!-- Wave Animation Canvas -->
-    <canvas id="wave-canvas"></canvas>
-    
-    <!-- Navigation -->
-    <nav id="navbar" class="navbar">
-        <div class="nav-container">
-            <div class="nav-brand">VS</div>
-            <div class="nav-menu">
-                <a href="#about" class="nav-link">About</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#contact" class="nav-link">Contact</a>
-                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          <!-- Desktop Menu & Theme Switcher -->
+          <div class="hidden md:flex items-center space-x-8">
+            <a
+              href="#about"
+              class="nav-link hover:text-gray-500 dark:hover:text-white transition-colors"
+              >About</a
+            >
+            <!-- <a href="#projects" class="nav-link hover:text-gray-500 dark:hover:text-white transition-colors">Projects</a> -->
+            <a
+              href="#experience"
+              class="nav-link hover:text-gray-500 dark:hover:text-white transition-colors"
+              >Experience</a
+            >
+            <a
+              href="#education"
+              class="nav-link hover:text-gray-500 dark:hover:text-white transition-colors"
+              >Education</a
+            >
+            <a
+              href="#awards"
+              class="nav-link hover:text-gray-500 dark:hover:text-white transition-colors"
+              >Awards</a
+            >
+            <a
+              href="#contact"
+              class="bg-light-text text-light dark:bg-dark-text dark:text-dark font-bold py-2 px-5 rounded-full hover:bg-opacity-80 transition-colors"
+              >Contact Now</a
+            >
+            <button
+              id="theme-switcher"
+              class="w-10 h-10 rounded-full flex items-center justify-center bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border"
+            >
+              <svg
+                id="sun-icon"
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+                ></path>
               </svg>
-                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              <svg
+                id="moon-icon"
+                class="w-6 h-6 hidden"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                ></path>
               </svg>
             </button>
           </div>
-            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
+
+          <!-- Mobile Menu Button and Theme Switcher -->
+          <div class="md:hidden flex items-center space-x-3">
+            <button
+              id="theme-switcher-mobile"
+              class="w-10 h-10 rounded-full flex items-center justify-center bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border"
+            >
+              <svg
+                id="sun-icon-mobile"
+                class="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+                ></path>
+              </svg>
+              <svg
+                id="moon-icon-mobile"
+                class="w-5 h-5 hidden"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                ></path>
+              </svg>
             </button>
+            <button
+              id="mobile-menu-button"
+              class="w-10 h-10 rounded-full flex items-center justify-center bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border z-50 relative"
+            >
+              <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="md:hidden w-full bg-light dark:bg-dark border-t border-light-border dark:border-dark-border"
+      >
+        <div class="px-6 py-4 space-y-4">
+          <a
+            href="#about"
+            class="block text-center py-3 text-lg font-medium hover:text-gray-500 dark:hover:text-gray-300 transition-colors"
+            >About</a
+          >
+          <!-- <a href="#projects" class="block text-center py-3 text-lg font-medium hover:text-gray-500 dark:hover:text-gray-300 transition-colors">Projects</a> -->
+          <a
+            href="#experience"
+            class="block text-center py-3 text-lg font-medium hover:text-gray-500 dark:hover:text-gray-300 transition-colors"
+            >Experience</a
+          >
+          <a
+            href="#education"
+            class="block text-center py-3 text-lg font-medium hover:text-gray-500 dark:hover:text-gray-300 transition-colors"
+            >Education</a
+          >
+          <a
+            href="#awards"
+            class="block text-center py-3 text-lg font-medium hover:text-gray-500 dark:hover:text-gray-300 transition-colors"
+            >Awards</a
+          >
+          <a
+            href="#contact"
+            class="block text-center py-3 mx-4 bg-light-text text-light dark:bg-dark-text dark:text-dark font-bold rounded-full hover:bg-opacity-80 transition-colors"
+            >Contact</a
+          >
+        </div>
       </div>
     </nav>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobile-menu">
-        <a href="#about" class="mobile-nav-link">About</a>
-        <a href="#projects" class="mobile-nav-link">Projects</a>
-        <a href="#contact" class="mobile-nav-link">Contact</a>
-    </div>
-
     <!-- Hero Section -->
-    <section id="hero" class="hero">
-        <div class="hero-content">
-            <h1 id="hero-name" class="hero-name">
-                <span class="hero-text-animated">Vinay Sharma</span>
-            </h1>
-            <p class="hero-tagline">
-                <span class="fade-in-text">Ruby on Rails Developer</span>
-                <span class="separator">|</span>
-                <span class="fade-in-text delay-1">Building scalable & creative apps</span>
-            </p>
-            <div class="hero-cta">
-                <a href="#projects" class="btn btn-primary">View Projects</a>
-                <a href="#contact" class="btn btn-secondary">Get in Touch</a>
-            </div>
+    <header
+      id="home"
+      class="h-screen flex flex-col justify-center items-start relative"
+    >
+      <div class="container mx-auto px-6">
+        <div class="max-w-5xl">
+          <p class="text-lg text-gray-500 dark:text-gray-400 mb-4 reveal-line">
+            <span>BASED IN AHMEDABAD, INDIA</span>
+          </p>
+          <h1 class="hero-text font-black tracking-tighter leading-none">
+            <span class="reveal-line"><span>Ruby on Rails</span></span>
+            <span class="reveal-line"><span>Developer</span></span>
+          </h1>
         </div>
-        <div class="scroll-indicator">
-            <div class="scroll-down"></div>
+      </div>
+    </header>
+
+    <!-- Marquee Section -->
+    <section class="py-12 border-y border-light-border dark:border-dark-border">
+      <div class="marquee">
+        <div class="marquee-content">
+          <span class="text-2xl font-semibold mx-8">Ruby</span
+          ><span class="text-2xl font-semibold mx-8">Ruby on Rails</span
+          ><span class="text-2xl font-semibold mx-8">jQuery</span
+          ><span class="text-2xl font-semibold mx-8">HTML</span
+          ><span class="text-2xl font-semibold mx-8">CSS/SCSS</span
+          ><span class="text-2xl font-semibold mx-8">Bootstrap 4/5</span
+          ><span class="text-2xl font-semibold mx-8">RSpec</span
+          ><span class="text-2xl font-semibold mx-8">MySQL</span
+          ><span class="text-2xl font-semibold mx-8">PostgreSQL</span
+          ><span class="text-2xl font-semibold mx-8">MongoDB</span>
+          <span class="text-2xl font-semibold mx-8">Ruby</span
+          ><span class="text-2xl font-semibold mx-8">Ruby on Rails</span
+          ><span class="text-2xl font-semibold mx-8">jQuery</span
+          ><span class="text-2xl font-semibold mx-8">HTML</span
+          ><span class="text-2xl font-semibold mx-8">CSS/SCSS</span
+          ><span class="text-2xl font-semibold mx-8">Bootstrap 4/5</span
+          ><span class="text-2xl font-semibold mx-8">RSpec</span
+          ><span class="text-2xl font-semibold mx-8">MySQL</span
+          ><span class="text-2xl font-semibold mx-8">PostgreSQL</span
+          ><span class="text-2xl font-semibold mx-8">MongoDB</span>
+        </div>
       </div>
     </section>
 
+    <!-- Main Content -->
+    <main class="container mx-auto px-6">
       <!-- About Section -->
-    <section id="about" class="about section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">About Me</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="about-content glass-card">
-                <div class="about-grid">
-                    <div class="about-photo">
-                        <div class="photo-placeholder">
-                            <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="12" cy="7" r="4"></circle>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="about-text">
-                        <h3>Hello! I'm Vinay Sharma</h3>
-                        <p>
-                            A passionate Ruby on Rails developer with over 5 years of experience building 
-                            robust, scalable web applications. I specialize in creating elegant solutions 
-                            to complex problems, with a focus on clean code and best practices.
-                        </p>
-                        <p>
-                            My journey in web development has taken me through various domains including 
-                            CRM systems, e-commerce platforms, ERP solutions, and more. I love working with 
-                            modern technologies and continuously learning new skills.
-                        </p>
-                        <div class="contact-info-mobile">
-                            <p><strong>📧</strong> vinaysharma.contact@gmail.com</p>
-                            <p><strong>📱</strong> +91 9974440354</p>
-                            <p><strong>📍</strong> Ahmedabad, India</p>
-                        </div>
-                        <div class="about-actions">
-                            <a href="https://linkedin.com/in/vinshaku" target="_blank" class="btn btn-social btn-linkedin">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                                </svg>
-                                LinkedIn
-                            </a>
-                            <a href="https://github.com/vinshaku" target="_blank" class="btn btn-social btn-github">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                                </svg>
-                                GitHub
-                            </a>
-                            <a href="#" class="btn btn-social btn-resume">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                    <polyline points="14,2 14,8 20,8"></polyline>
-                                    <line x1="16" y1="13" x2="8" y2="13"></line>
-                                    <line x1="16" y1="17" x2="8" y2="17"></line>
-                                    <polyline points="10,9 9,9 8,9"></polyline>
-                                </svg>
-                                Resume
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Professional Experience Section -->
-    <section id="experience" class="experience section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Professional Experience</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="experience-grid">
-                <div class="experience-card glass-card">
-                    <div class="experience-header">
-                        <div class="experience-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                                <polyline points="3.27,6.96 12,12.01 20.73,6.96"></polyline>
-                                <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                            </svg>
-                        </div>
-                        <div class="experience-content">
-                            <h3>Ruby On Rails Developer</h3>
-                            <div class="experience-meta">
-                                <span class="company">TechCompose Solutions</span>
-                                <span class="duration">07/2023 - Present</span>
-                                <span class="location">📍 Ahmedabad, India</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="experience-description">
-                        <ul>
-                            <li>Delivered features across POS, CRM, and e-commerce platforms as part of various client projects</li>
-                            <li>Built subsystems for the POS domain, including Superadmin panel, CRM, Marketplace, Kiosk, and Online Ordering</li>
-                            <li>Developed APIs for mobile apps and implemented report modules with filters and export/import features</li>
-                            <li>Implemented background jobs for email/SMS notifications, integrated payment gateways, and developed webhooks</li>
-                            <li>Participated in all development phases and deployed applications to Heroku and AWS</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="experience-card glass-card">
-                    <div class="experience-header">
-                        <div class="experience-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                                <polyline points="3.27,6.96 12,12.01 20.73,6.96"></polyline>
-                                <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                            </svg>
-                        </div>
-                        <div class="experience-content">
-                            <h3>Ruby On Rails Developer</h3>
-                            <div class="experience-meta">
-                                <span class="company">Bacancy Technology</span>
-                                <span class="duration">07/2020 - 07/2023</span>
-                                <span class="location">📍 Ahmedabad, India</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="experience-description">
-                        <ul>
-                            <li>Designed and implemented backend logic and API integrations for products in Real Estate, Inventory, and VoIP domains</li>
-                            <li>Upgraded a Rails 6 API app to Rails 7 within two weeks, resolving deployment and compatibility issues</li>
-                            <li>Integrated Stripe into the VoIP system and enhanced the billing module with service configurations</li>
-                            <li>Collaborated with VoIP developers to debug call data inconsistencies, improving system reliability</li>
-                            <li>Enhanced app performance by optimizing queries, adding indexes, caching responses, and managing background jobs</li>
-                            <li>Actively participated in code reviews, internal discussions, and mentoring sessions for junior team members</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="experience-card glass-card">
-                    <div class="experience-header">
-                        <div class="experience-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                                <polyline points="3.27,6.96 12,12.01 20.73,6.96"></polyline>
-                                <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                            </svg>
-                        </div>
-                        <div class="experience-content">
-                            <h3>Trainee Software Engineer</h3>
-                            <div class="experience-meta">
-                                <span class="company">Bacancy Technology</span>
-                                <span class="duration">01/2020 - 06/2020</span>
-                                <span class="location">📍 Ahmedabad, India</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="experience-description">
-                        <ul>
-                            <li>Supported senior engineers on live projects and contributed through feature development and bug fixing</li>
-                            <li>Developed demo apps including a resume builder and job portal using Rails, HTML, CSS, and jQuery</li>
-                            <li>Designed and managed PostgreSQL and MySQL databases for training projects</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="education section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Education</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="education-grid">
-                <div class="education-card glass-card">
-                    <div class="education-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-                            <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
-                        </svg>
-                    </div>
-                    <h3>BE in Computer Engineering</h3>
-                    <p class="institution">VGEC, Ahmedabad, India</p>
-                    <p class="year">2017 - 2020</p>
-                </div>
-                <div class="education-card glass-card">
-                    <div class="education-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-                            <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
-                        </svg>
-                    </div>
-                    <h3>Diploma in Computer Engineering</h3>
-                    <p class="institution">R.C.Technical Institute, Ahmedabad, India</p>
-                    <p class="year">2014 - 2017</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Awards Section -->
-    <section id="awards" class="awards section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Awards & Recognition</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="awards-grid">
-                <div class="award-card glass-card">
-                    <div class="award-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
-                            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
-                            <path d="M4 22h16"></path>
-                            <path d="M10 14.66V17c0 .55.45 1 1 1h2c.55 0 1-.45 1-1v-2.34"></path>
-                            <path d="M12 14.66V17c0 .55-.45 1-1 1H9c-.55 0-1-.45-1-1v-2.34"></path>
-                            <path d="M12 14.66V17c0 .55.45 1 1 1h2c.55 0 1-.45 1-1v-2.34"></path>
-                            <path d="M12 14.66V17c0 .55-.45 1-1 1H9c-.55 0-1-.45-1-1v-2.34"></path>
-                        </svg>
-                    </div>
-                    <h3>Team of the Quarter-4 (2021)</h3>
-                    <p class="company">Bacancy Technology</p>
-                </div>
-                <div class="award-card glass-card">
-                    <div class="award-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
-                            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
-                            <path d="M4 22h16"></path>
-                            <path d="M10 14.66V17c0 .55.45 1 1 1h2c.55 0 1-.45 1-1v-2.34"></path>
-                            <path d="M12 14.66V17c0 .55-.45 1-1 1H9c-.55 0-1-.45-1-1v-2.34"></path>
-                            <path d="M12 14.66V17c0 .55.45 1 1 1h2c.55 0 1-.45 1-1v-2.34"></path>
-                            <path d="M12 14.66V17c0 .55-.45 1-1 1H9c-.55 0-1-.45-1-1v-2.34"></path>
-                        </svg>
-                    </div>
-                    <h3>Team of the Quarter-1 (2023)</h3>
-                    <p class="company">Bacancy Technology</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Technical Skills Section -->
-    <section id="skills" class="skills section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Technical Skills</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="skills-grid">
-                <div class="skill-category glass-card">
-                    <div class="skill-header">
-                        <div class="skill-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"></path>
-                            </svg>
-                        </div>
-                        <h3>Backend</h3>
-                    </div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Ruby on Rails</span>
-                        <span class="skill-tag">API Design</span>
-                        <span class="skill-tag">RESTful Services</span>
-                        <span class="skill-tag">GraphQL</span>
-                        <span class="skill-tag">Hotwire & Stimulus</span>
-                    </div>
-                </div>
-                <div class="skill-category glass-card">
-                    <div class="skill-header">
-                        <div class="skill-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                            </svg>
-                        </div>
-                        <h3>Frontend</h3>
-                    </div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">HTML/CSS</span>
-                        <span class="skill-tag">SCSS</span>
-                        <span class="skill-tag">jQuery</span>
-                        <span class="skill-tag">Bootstrap 4/5</span>
-                        <span class="skill-tag">JavaScript</span>
-                    </div>
-                </div>
-                <div class="skill-category glass-card">
-                    <div class="skill-header">
-                        <div class="skill-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M4 7V4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v3"></path>
-                                <path d="M9 20h6"></path>
-                                <path d="M12 4v16"></path>
-                            </svg>
-                        </div>
-                        <h3>Database</h3>
-                    </div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">PostgreSQL</span>
-                        <span class="skill-tag">MySQL</span>
-                        <span class="skill-tag">MongoDB</span>
-                        <span class="skill-tag">Redis</span>
-                    </div>
-                </div>
-                <div class="skill-category glass-card">
-                    <div class="skill-header">
-                        <div class="skill-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
-                            </svg>
-                        </div>
-                        <h3>Tools & Services</h3>
-                    </div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Git & GitHub</span>
-                        <span class="skill-tag">AWS EC2 & S3</span>
-                        <span class="skill-tag">Heroku</span>
-                        <span class="skill-tag">Jira & Asana</span>
-                        <span class="skill-tag">RSpec</span>
-                        <span class="skill-tag">CI/CD</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Currently Learning Section -->
-    <section id="learning" class="learning section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Currently Learning</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="learning-content">
-                <div class="learning-card glass-card">
-                    <div class="learning-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9 12l2 2 4-4"></path>
-                            <path d="M21 12c-1 0-2-1-2-2s1-2 2-2 2 1 2 2-1 2-2 2z"></path>
-                            <path d="M3 12c1 0 2-1 2-2s-1-2-2-2-2 1-2 2 1 2 2 2z"></path>
-                            <path d="M12 3c0 1-1 2-2 2s-2 1-2 2 1 2 2 2 2 1 2 2 1-2 2-2 2-1 2-2-1-2-2-2-2-1-2-2z"></path>
-                        </svg>
-                    </div>
-                    <h3>Expanding My Skills</h3>
-                    <p>Always learning new technologies to stay current with industry trends</p>
-                    <div class="learning-badges">
-                        <span class="learning-badge">Kafka</span>
-                        <span class="learning-badge">Hotwire</span>
-                        <span class="learning-badge">Stimulus</span>
-                        <span class="learning-badge">Docker</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-      <!-- Projects Section -->
-    <section id="projects" class="projects section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Featured Projects</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="projects-grid">
-                <div class="project-card glass-card">
-                    <div class="project-header">
-                        <div class="project-number">01</div>
-                        <div class="project-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="9" cy="7" r="4"></circle>
-                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                            </svg>
-                        </div>
-                    </div>
-                    <h3>CRM System</h3>
-                    <p class="project-description">
-                        Built comprehensive customer relationship management systems with advanced 
-                        contact management, lead tracking, and automated workflows. Integrated with 
-                        multiple third-party services for enhanced functionality.
-                    </p>
-                    <div class="project-tech">
-                        <span>Rails 7</span>
-                        <span>PostgreSQL</span>
-                        <span>Redis</span>
-                        <span>Sidekiq</span>
-                    </div>
-                    <a href="#" class="project-link">Learn More →</a>
-                </div>
-                
-                <div class="project-card glass-card">
-                    <div class="project-header">
-                        <div class="project-number">02</div>
-                        <div class="project-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-                                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-                                <path d="M9 14l2 2 4-4"></path>
-                            </svg>
-                        </div>
-                    </div>
-                    <h3>E-Commerce Platform</h3>
-                    <p class="project-description">
-                        Developed scalable e-commerce solutions with advanced inventory management, 
-                        payment gateway integrations, and real-time order tracking systems. 
-                        Optimized for high-traffic scenarios.
-                    </p>
-                    <div class="project-tech">
-                        <span>Rails API</span>
-                        <span>Stripe</span>
-                        <span>AWS S3</span>
-                        <span>ElasticSearch</span>
-                    </div>
-                    <a href="#" class="project-link">Learn More →</a>
-                </div>
-                
-                <div class="project-card glass-card">
-                    <div class="project-header">
-                        <div class="project-number">03</div>
-                        <div class="project-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                                <polyline points="3.27,6.96 12,12.01 20.73,6.96"></polyline>
-                                <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                            </svg>
-                        </div>
-                    </div>
-                    <h3>ERP Solution</h3>
-                    <p class="project-description">
-                        Created enterprise resource planning systems with modules for accounting, 
-                        human resources, inventory, and project management. Implemented complex 
-                        business logic and reporting capabilities.
-                    </p>
-                    <div class="project-tech">
-                        <span>Rails</span>
-                        <span>PostgreSQL</span>
-                        <span>Kafka</span>
-                        <span>Docker</span>
-                    </div>
-                    <a href="#" class="project-link">Learn More →</a>
-                </div>
-                
-                <div class="project-card glass-card">
-                    <div class="project-header">
-                        <div class="project-number">04</div>
-                        <div class="project-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                            </svg>
-                        </div>
-                    </div>
-                    <h3>Social Media Features</h3>
-                    <p class="project-description">
-                        Implemented social networking features including real-time messaging, 
-                        activity feeds, notification systems, and user engagement analytics. 
-                        Built with scalability and performance in mind.
-                    </p>
-                    <div class="project-tech">
-                        <span>ActionCable</span>
-                        <span>Redis</span>
-                        <span>WebSockets</span>
-                        <span>PostgreSQL</span>
-                    </div>
-                    <a href="#" class="project-link">Learn More →</a>
-                </div>
-                
-                <div class="project-card glass-card">
-                    <div class="project-header">
-                        <div class="project-number">05</div>
-                        <div class="project-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                            </svg>
-                        </div>
-                    </div>
-                    <h3>Finance App</h3>
-                    <p class="project-description">
-                        Developed financial management applications with features for budgeting, 
-                        expense tracking, invoicing, and financial reporting. Ensured high security 
-                        standards and compliance with financial regulations.
-                    </p>
-                    <div class="project-tech">
-                        <span>Rails</span>
-                        <span>Plaid API</span>
-                        <span>Encryption</span>
-                        <span>Charts.js</span>
-                    </div>
-                    <a href="#" class="project-link">Learn More →</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Get in Touch</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info glass-card">
-                    <h3>Let's Create Something Amazing</h3>
-                    <p>
-                        I'm always interested in hearing about new projects and opportunities. 
-                        Whether you have a question or just want to say hi, feel free to reach out!
-                    </p>
-                    <div class="contact-links">
-                        <a href="https://github.com/vinshaku" target="_blank" class="social-link">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                            </svg>
-                            GitHub
-                        </a>
-                        <a href="https://linkedin.com/in/vinshaku" target="_blank" class="social-link">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                            </svg>
-                            LinkedIn
-                        </a>
-                        <a href="https://twitter.com/vinshaku" target="_blank" class="social-link">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                            </svg>
-                            Twitter
-                        </a>
-                    </div>
-                </div>
-                <form class="contact-form glass-card" id="contact-form">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-        </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
+      <section id="about" class="py-24">
+        <div class="grid md:grid-cols-5 gap-8 md:gap-12 items-center">
+          <div class="md:col-span-2">
+            <p
+              class="section-title text-sm uppercase tracking-widest mb-2 reveal-line"
+            >
+              <span>01 // About Me</span>
+            </p>
+            <h2
+              class="text-4xl lg:text-5xl font-bold leading-tight reveal-line"
+            >
+              <span>Ruby on Rails Developer with 5+ years of experience.</span>
+            </h2>
           </div>
-                    <button type="submit" class="btn btn-primary btn-submit">Send Message</button>
-                    <div class="form-status" id="form-status"></div>
-                </form>
+          <div
+            class="md:col-span-3 text-gray-600 dark:text-gray-400 text-lg leading-relaxed reveal-line"
+          >
+            <span
+              >Building scalable, high-performance web applications. Skilled in
+              designing RESTful APIs, integrating payment gateways, optimizing
+              backend performance, and deploying to AWS and Heroku. Collaborated
+              with engineering and product teams across domains such as POS,
+              CRM, VoIP, Real Estate, and e-commerce to build reliable backend
+              systems, streamline integrations, and deliver production-ready
+              solutions.</span
+            >
           </div>
         </div>
       </section>
 
+      <!-- Projects Section -->
+      <!-- <section id="projects" class="py-24">
+            <div class="text-left mb-12">
+                <p class="section-title text-sm uppercase tracking-widest mb-2 reveal-line"><span>02 // Portfolio</span></p>
+                <h2 class="text-4xl lg:text-5xl font-bold reveal-line"><span>Latest Projects</span></h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 project-grid">
+                <div class="bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border rounded-xl overflow-hidden transition-all duration-300 card-hover">
+                    <div class="project-image-container rounded-t-xl"><img src="https://placehold.co/800x600/F5F5F5/1A1A1A?text=POS+System" alt="POS System" class="w-full h-auto object-cover project-image"></div>
+                    <div class="p-6 md:p-8"><p class="text-gray-500 dark:text-gray-400 text-sm mb-2">Backend Development</p><h3 class="text-2xl font-bold">Point of Sale (POS) System</h3></div>
+                </div>
+                <div class="bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border rounded-xl overflow-hidden transition-all duration-300 card-hover">
+                    <div class="project-image-container rounded-t-xl"><img src="https://placehold.co/800x600/F5F5F5/1A1A1A?text=CRM+Platform" alt="CRM Platform" class="w-full h-auto object-cover project-image"></div>
+                    <div class="p-6 md:p-8"><p class="text-gray-500 dark:text-gray-400 text-sm mb-2">API Development</p><h3 class="text-2xl font-bold">CRM Platform Integration</h3></div>
+                </div>
+            </div>
+        </section> -->
+
+      <!-- Experience Section -->
+      <section id="experience" class="py-24">
+        <div class="text-center mb-12">
+          <p
+            class="section-title text-sm uppercase tracking-widest mb-2 reveal-line"
+          >
+            <span>02 // Experience</span>
+          </p>
+          <h2 class="text-4xl lg:text-5xl font-bold reveal-line">
+            <span>Work History</span>
+          </h2>
+        </div>
+        <div class="timeline-container">
+          <div class="timeline-item left" data-year="2023 - Present">
+            <div
+              class="timeline-content bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border"
+            >
+              <h3 class="text-2xl font-bold">Ruby On Rails Developer</h3>
+              <p class="text-gray-500 dark:text-gray-400 mb-4">
+                TechCompose Solutions
+              </p>
+              <ul
+                class="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-2"
+              >
+                <li>
+                  Delivered features across POS, CRM, and e-commerce platforms.
+                </li>
+                <li>
+                  Built subsystems for the POS domain (Superadmin, CRM,
+                  Marketplace, etc.).
+                </li>
+                <li>
+                  Developed APIs for mobile apps and implemented report modules.
+                </li>
+                <li>Integrated payment gateways and developed webhooks.</li>
+                <li>
+                  Participated in the full development lifecycle and deployed to
+                  Heroku/AWS.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="timeline-item right" data-year="2020 - 2023">
+            <div
+              class="timeline-content bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border"
+            >
+              <h3 class="text-2xl font-bold">Ruby On Rails Developer</h3>
+              <p class="text-gray-500 dark:text-gray-400 mb-4">
+                Bacancy Technology
+              </p>
+              <ul
+                class="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-2"
+              >
+                <li>
+                  Designed and implemented backend logic for various domains.
+                </li>
+                <li>
+                  Upgraded a Rails 6 API app to Rails 7, resolving compatibility
+                  issues.
+                </li>
+                <li>Integrated Stripe and enhanced the billing module.</li>
+                <li>
+                  Collaborated with VoIP developers to debug data
+                  inconsistencies.
+                </li>
+                <li>
+                  Enhanced app performance through optimization techniques.
+                </li>
+                <li>
+                  Participated in code reviews and mentored junior team members.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="timeline-item left" data-year="2020">
+            <div
+              class="timeline-content bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border"
+            >
+              <h3 class="text-2xl font-bold">Trainee Software Engineer</h3>
+              <p class="text-gray-500 dark:text-gray-400 mb-4">
+                Bacancy Technology
+              </p>
+              <ul
+                class="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-2"
+              >
+                <li>Supported senior engineers on live projects.</li>
+                <li>Developed demo apps (resume builder, job portal).</li>
+                <li>Designed and managed PostgreSQL and MySQL databases.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education Section -->
+      <section id="education" class="py-24">
+        <div class="text-left mb-12">
+          <p
+            class="section-title text-sm uppercase tracking-widest mb-2 reveal-line"
+          >
+            <span>03 // Education</span>
+          </p>
+          <h2 class="text-4xl lg:text-5xl font-bold reveal-line">
+            <span>My Background</span>
+          </h2>
+        </div>
+        <div class="space-y-4">
+          <div>
+            <h3 class="text-2xl font-bold">BE in Computer Engineering</h3>
+            <p class="text-gray-500 dark:text-gray-400">
+              VGEC, Ahmedabad, India | 2017 - 2020
+            </p>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold">Diploma in Computer Engineering</h3>
+            <p class="text-gray-500 dark:text-gray-400">
+              R.C.Technical Institute, Ahmedabad, India | 2014 - 2017
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Awards Section -->
+      <section id="awards" class="py-24">
+        <div class="text-left mb-12">
+          <p
+            class="section-title text-sm uppercase tracking-widest mb-2 reveal-line"
+          >
+            <span>04 // Awards</span>
+          </p>
+          <h2 class="text-4xl lg:text-5xl font-bold reveal-line">
+            <span>Recognition</span>
+          </h2>
+        </div>
+        <div class="space-y-4">
+          <div>
+            <h3 class="text-2xl font-bold">Team of the Quarter-4 (2021)</h3>
+            <p class="text-gray-500 dark:text-gray-400">Bacancy Technology</p>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold">Team of the Quarter-1 (2023)</h3>
+            <p class="text-gray-500 dark:text-gray-400">Bacancy Technology</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="py-24 text-center">
+        <h2
+          class="text-5xl md:text-7xl font-black tracking-tighter mb-6 reveal-line"
+        >
+          <span>Let's Work Together</span>
+        </h2>
+        <a
+          href="mailto:vinaysharma.contact@gmail.com"
+          class="inline-block bg-light-text text-light dark:bg-dark-text dark:text-dark font-bold text-lg py-4 px-10 rounded-full hover:bg-opacity-80 transition-colors duration-300 transform hover:scale-105"
+          >CONTACT NOW</a
+        >
+      </section>
+    </main>
+
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 Vinay Sharma. Built with passion and Three.js</p>
+    <footer class="border-t border-light-border dark:border-dark-border">
+      <div
+        class="container mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center text-center"
+      >
+        <p class="text-gray-500 mb-4 md:mb-0">
+          &copy; 2025 Vinay Sharma. All Rights Reserved.
+        </p>
+        <div class="flex space-x-6 mb-4 md:mb-0 justify-center">
+          <a
+            href="https://www.linkedin.com/in/vinshaku/"
+            target="_blank"
+            class="text-gray-500 hover:text-light-text dark:hover:text-dark-text"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+              />
+            </svg>
+          </a>
+          <a
+            href="https://github.com/vinshaku"
+            target="_blank"
+            class="text-gray-500 hover:text-light-text dark:hover:text-dark-text"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.378.203 2.398.1 2.65.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.942.359.308.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </a>
+          <a
+            href="https://www.instagram.com/vinshaku/"
+            target="_blank"
+            class="text-gray-500 hover:text-light-text dark:hover:text-dark-text"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.441-.645 1.441-1.44-.645-1.44-1.441-1.44z"
+              />
+            </svg>
+          </a>
+        </div>
+        <a
+          href="#home"
+          class="text-gray-500 hover:text-light-text dark:hover:text-dark-text"
+          >Back to Top</a
+        >
       </div>
     </footer>
 
-    <!-- Scripts -->
-    <!-- <script src="galaxy.js"></script> -->
-    <script src="waves.js"></script>
-    <script src="main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+      // Register GSAP plugins
+      gsap.registerPlugin(ScrollTrigger);
+
+      // --- THEME SWITCHER FUNCTION ---
+      function setupThemeSwitcher() {
+        const themeSwitcher = document.getElementById("theme-switcher");
+        const themeSwitcherMobile = document.getElementById(
+          "theme-switcher-mobile"
+        );
+        const sunIcon = document.getElementById("sun-icon");
+        const moonIcon = document.getElementById("moon-icon");
+        const sunIconMobile = document.getElementById("sun-icon-mobile");
+        const moonIconMobile = document.getElementById("moon-icon-mobile");
+        const htmlEl = document.documentElement;
+
+        // Set initial theme
+        if (
+          localStorage.getItem("theme") === "dark" ||
+          (!("theme" in localStorage) &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ) {
+          htmlEl.classList.add("dark");
+          sunIcon.classList.add("hidden");
+          moonIcon.classList.remove("hidden");
+          sunIconMobile.classList.add("hidden");
+          moonIconMobile.classList.remove("hidden");
+        } else {
+          htmlEl.classList.remove("dark");
+          sunIcon.classList.remove("hidden");
+          moonIcon.classList.add("hidden");
+          sunIconMobile.classList.remove("hidden");
+          moonIconMobile.classList.add("hidden");
+        }
+
+        // Theme toggle function
+        function toggleTheme() {
+          htmlEl.classList.toggle("dark");
+          const isDark = htmlEl.classList.contains("dark");
+          localStorage.setItem("theme", isDark ? "dark" : "light");
+
+          // Update desktop icons
+          sunIcon.classList.toggle("hidden", isDark);
+          moonIcon.classList.toggle("hidden", !isDark);
+
+          // Update mobile icons
+          sunIconMobile.classList.toggle("hidden", isDark);
+          moonIconMobile.classList.toggle("hidden", !isDark);
+        }
+
+        // Add event listeners
+        themeSwitcher.addEventListener("click", toggleTheme);
+        themeSwitcherMobile.addEventListener("click", toggleTheme);
+      }
+
+      // --- MOBILE MENU SETUP ---
+      function setupMobileMenu() {
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const hamburger = mobileMenuButton.querySelector(".hamburger");
+
+        mobileMenuButton.addEventListener("click", () => {
+          mobileMenu.classList.toggle("active");
+          hamburger.classList.toggle("active");
+        });
+
+        // Close menu when clicking on links
+        document.querySelectorAll("#mobile-menu a").forEach((link) => {
+          link.addEventListener("click", () => {
+            mobileMenu.classList.remove("active");
+            hamburger.classList.remove("active");
+          });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener("click", (e) => {
+          if (
+            !mobileMenuButton.contains(e.target) &&
+            !mobileMenu.contains(e.target)
+          ) {
+            mobileMenu.classList.remove("active");
+            hamburger.classList.remove("active");
+          }
+        });
+      }
+
+      // --- NAVBAR SCROLL EFFECT ---
+      function setupNavbar() {
+        const navbar = document.getElementById("navbar");
+
+        window.addEventListener("scroll", () => {
+          navbar.classList.toggle("nav-blur", window.scrollY > 50);
+        });
+
+        // Navbar active state
+        const sections = gsap.utils.toArray("section, header");
+        sections.forEach((section) => {
+          ScrollTrigger.create({
+            trigger: section,
+            start: "top center",
+            end: "bottom center",
+            onToggle: (self) => {
+              const navLink = document.querySelector(
+                `a[href="#${section.id}"]`
+              );
+              if (navLink) {
+                if (self.isActive) {
+                  document
+                    .querySelectorAll(".nav-link")
+                    .forEach((link) => link.classList.remove("active"));
+                  navLink.classList.add("active");
+                }
+              }
+            },
+          });
+        });
+      }
+
+      // --- CUSTOM CURSOR ---
+      function setupCursor() {
+        const cursor = document.querySelector(".custom-cursor");
+
+        if (window.matchMedia("(pointer: fine)").matches) {
+          window.addEventListener("mousemove", (e) => {
+            cursor.style.left = e.clientX + "px";
+            cursor.style.top = e.clientY + "px";
+          });
+
+          document.querySelectorAll("a, button, .card-hover").forEach((el) => {
+            el.addEventListener("mouseenter", () =>
+              cursor.classList.add("hover")
+            );
+            el.addEventListener("mouseleave", () =>
+              cursor.classList.remove("hover")
+            );
+          });
+        } else {
+          cursor.style.display = "none";
+        }
+      }
+
+      // --- SMOOTH SCROLLING ---
+      function setupSmoothScroll() {
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute("href"));
+            if (target) {
+              target.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }
+          });
+        });
+      }
+
+      // --- GSAP ANIMATIONS ---
+      function setupAnimations() {
+        // Set initial state for reveal elements
+        gsap.set(".reveal-line > span", { yPercent: 120, skewY: 7 });
+        gsap.set(".project-grid > div", { autoAlpha: 0, y: 50 });
+        gsap.set(".timeline-item", { autoAlpha: 0, x: 50 });
+
+        // Hero animations - trigger immediately
+        const heroSpans = gsap.utils.toArray("#home .reveal-line > span");
+        gsap.to(heroSpans, {
+          yPercent: 0,
+          skewY: 0,
+          duration: 1.8,
+          ease: "power4.out",
+          stagger: 0.1,
+          delay: 0.5,
+        });
+
+        // Main content reveal animations
+        const mainRevealSpans = gsap.utils.toArray("main .reveal-line > span");
+        mainRevealSpans.forEach((span) => {
+          ScrollTrigger.create({
+            trigger: span,
+            start: "top 90%",
+            onEnter: () => {
+              gsap.to(span, {
+                yPercent: 0,
+                skewY: 0,
+                duration: 1.5,
+                ease: "power4.out",
+              });
+            },
+            once: true,
+          });
+        });
+
+        // Project cards animation
+        const projectCards = gsap.utils.toArray(".project-grid > div");
+        projectCards.forEach((card, i) => {
+          ScrollTrigger.create({
+            trigger: card,
+            start: "top 85%",
+            onEnter: () => {
+              gsap.to(card, {
+                autoAlpha: 1,
+                y: 0,
+                duration: 1,
+                delay: i * 0.2,
+                ease: "power3.out",
+              });
+            },
+            once: true,
+          });
+        });
+
+        // Timeline items animation
+        const timelineItems = gsap.utils.toArray(".timeline-item");
+        timelineItems.forEach((item, i) => {
+          ScrollTrigger.create({
+            trigger: item,
+            start: "top 80%",
+            onEnter: () => {
+              gsap.to(item, {
+                autoAlpha: 1,
+                x: 0,
+                duration: 1,
+                delay: i * 0.1,
+                ease: "power3.out",
+              });
+            },
+            once: true,
+          });
+        });
+
+        // Contact section animation
+        ScrollTrigger.create({
+          trigger: "#contact",
+          start: "top 70%",
+          onEnter: () => {
+            gsap.from("#contact h2", {
+              scale: 0.8,
+              autoAlpha: 0,
+              duration: 1.2,
+              ease: "back.out(1.7)",
+            });
+            gsap.from("#contact a", {
+              y: 30,
+              autoAlpha: 0,
+              duration: 1,
+              delay: 0.3,
+              ease: "power3.out",
+            });
+          },
+          once: true,
+        });
+      }
+
+      // --- INITIALIZE EVERYTHING ---
+      document.addEventListener("DOMContentLoaded", function () {
+        // Wait a bit for all elements to be ready
+        setTimeout(() => {
+          setupThemeSwitcher();
+          setupMobileMenu();
+          setupNavbar();
+          setupCursor();
+          setupSmoothScroll();
+          setupAnimations();
+
+          // Refresh ScrollTrigger after everything is set up
+          ScrollTrigger.refresh();
+        }, 100);
+      });
+
+      // Refresh ScrollTrigger on window resize
+      window.addEventListener("resize", () => {
+        ScrollTrigger.refresh();
+      });
+    </script>
   </body>
 </html>
