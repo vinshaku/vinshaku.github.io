@@ -1,941 +1,120 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vinay Sharma | Ruby on Rails Developer (RoR) | vinshaku</title>
-    <meta
-      name="description"
-      content="Portfolio of Vinay Sharma, a Ruby on Rails (RoR) developer based in India. Explore projects, tech stack, and experience. Also known as vinshaku on GitHub."
-    />
-    <meta
-      name="keywords"
-      content="vinay sharma, ruby on rails developer, rails developer, ROR developer india, vinshaku, vinshaku.com, backend developer, github, ruby developer india, rails programmer"
-    />
-    <meta name="author" content="Vinay Sharma" />
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://vinshaku.com/" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family:
-          "Inter",
-          -apple-system,
-          BlinkMacSystemFont,
-          "Segoe UI",
-          sans-serif;
-        background: linear-gradient(
-          135deg,
-          #0a1628 0%,
-          #0f1922 50%,
-          #1a1f2e 100%
-        );
-        color: #e8f1f5;
-        overflow-x: hidden;
-        line-height: 1.6;
-        position: relative;
-        min-height: 100vh;
-      }
-
-      /* Animated mesh gradient background */
-      body::before {
-        content: "";
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background:
-          radial-gradient(
-            ellipse 100% 70% at 20% 30%,
-            rgba(52, 211, 153, 0.12),
-            transparent 50%
-          ),
-          radial-gradient(
-            ellipse 80% 60% at 80% 40%,
-            rgba(96, 165, 250, 0.08),
-            transparent 50%
-          ),
-          radial-gradient(
-            ellipse 90% 80% at 50% 80%,
-            rgba(251, 191, 36, 0.06),
-            transparent 50%
-          );
-        pointer-events: none;
-        animation: meshMove 20s ease-in-out infinite;
-      }
-
-      @keyframes meshMove {
-        0%,
-        100% {
-          opacity: 1;
-          transform: scale(1);
-        }
-        50% {
-          opacity: 0.8;
-          transform: scale(1.05);
-        }
-      }
-
-      /* Floating orbs */
-      .orb {
-        position: fixed;
-        border-radius: 50%;
-        filter: blur(80px);
-        opacity: 0.3;
-        pointer-events: none;
-        animation: float 15s ease-in-out infinite;
-      }
-
-      .orb-1 {
-        width: 400px;
-        height: 400px;
-        background: radial-gradient(
-          circle,
-          rgba(52, 211, 153, 0.4),
-          transparent
-        );
-        top: -10%;
-        left: -10%;
-        animation-delay: 0s;
-      }
-
-      .orb-2 {
-        width: 350px;
-        height: 350px;
-        background: radial-gradient(
-          circle,
-          rgba(96, 165, 250, 0.3),
-          transparent
-        );
-        bottom: -10%;
-        right: -10%;
-        animation-delay: 7s;
-      }
-
-      @keyframes float {
-        0%,
-        100% {
-          transform: translate(0, 0) scale(1);
-        }
-        33% {
-          transform: translate(30px, -30px) scale(1.1);
-        }
-        66% {
-          transform: translate(-20px, 20px) scale(0.9);
-        }
-      }
-
-      .container {
-        position: relative;
-        z-index: 1;
-        max-width: 650px;
-        margin: 0 auto;
-        padding: 3rem 1.5rem;
-      }
-
-      /* Glassmorphic card */
-      .glass-card {
-        background: rgba(255, 255, 255, 0.03);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 24px;
-        padding: 2.5rem;
-        box-shadow:
-          0 8px 32px rgba(0, 0, 0, 0.3),
-          inset 0 1px 0 rgba(255, 255, 255, 0.05);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .glass-card::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 1px;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(52, 211, 153, 0.5),
-          transparent
-        );
-      }
-
-      /* Header */
-      .header {
-        text-align: center;
-        margin-bottom: 2rem;
-        opacity: 0;
-        animation: fadeInUp 0.8s ease forwards;
-      }
-
-      .avatar-container {
-        position: relative;
-        width: 140px;
-        height: 140px;
-        margin: 0 auto 1.5rem;
-      }
-
-      .avatar-glow {
-        position: absolute;
-        inset: -20px;
-        background: radial-gradient(
-          circle,
-          rgba(52, 211, 153, 0.4),
-          transparent 70%
-        );
-        border-radius: 50%;
-        filter: blur(25px);
-        animation: pulse 3s ease-in-out infinite;
-      }
-
-      @keyframes pulse {
-        0%,
-        100% {
-          opacity: 0.6;
-          transform: scale(1);
-        }
-        50% {
-          opacity: 1;
-          transform: scale(1.1);
-        }
-      }
-
-      .avatar {
-        width: 140px;
-        height: 140px;
-        border-radius: 50%;
-        border: 3px solid rgba(52, 211, 153, 0.3);
-        box-shadow:
-          0 0 0 6px rgba(52, 211, 153, 0.1),
-          0 8px 32px rgba(52, 211, 153, 0.25);
-        position: relative;
-        z-index: 2;
-        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-      }
-
-      .avatar:hover {
-        transform: scale(1.08);
-        border-color: rgba(52, 211, 153, 0.6);
-        box-shadow:
-          0 0 0 8px rgba(52, 211, 153, 0.15),
-          0 12px 48px rgba(52, 211, 153, 0.4);
-      }
-
-      h1 {
-        font-size: 2.5rem;
-        font-weight: 800;
-        margin-bottom: 0.5rem;
-        background: linear-gradient(
-          135deg,
-          #ffffff 0%,
-          #34d399 50%,
-          #60a5fa 100%
-        );
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        letter-spacing: -0.03em;
-        line-height: 1.1;
-      }
-
-      .role {
-        font-size: 1rem;
-        color: rgba(255, 255, 255, 0.5);
-        font-weight: 500;
-        margin-bottom: 1rem;
-      }
-
-      /* Social icons with glassmorphism */
-      .social-links {
-        display: flex;
-        justify-content: center;
-        gap: 0.75rem;
-        margin: 1.5rem 0;
-      }
-
-      .social-icon {
-        width: 42px;
-        height: 42px;
-        border-radius: 12px;
-        background: rgba(255, 255, 255, 0.04);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-        cursor: pointer;
-        text-decoration: none;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .social-icon::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          135deg,
-          rgba(52, 211, 153, 0.3),
-          rgba(96, 165, 250, 0.3)
-        );
-        opacity: 0;
-        transition: opacity 0.3s ease;
-      }
-
-      .social-icon:hover::before {
-        opacity: 1;
-      }
-
-      .social-icon svg {
-        width: 18px;
-        height: 18px;
-        fill: rgba(255, 255, 255, 0.7);
-        position: relative;
-        z-index: 1;
-        transition: all 0.3s ease;
-      }
-
-      .social-icon:hover {
-        background: rgba(52, 211, 153, 0.15);
-        border-color: rgba(52, 211, 153, 0.4);
-        transform: translateY(-4px) scale(1.05);
-        box-shadow: 0 8px 24px rgba(52, 211, 153, 0.3);
-      }
-
-      .social-icon:hover svg {
-        fill: rgba(255, 255, 255, 1);
-        transform: scale(1.15);
-      }
-
-      /* Elegant stats */
-      .stats {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1rem;
-        margin: 2rem 0;
-        opacity: 0;
-        animation: fadeInUp 0.8s ease 0.2s forwards;
-      }
-
-      .stat {
-        text-align: center;
-        padding: 1.25rem;
-        background: rgba(255, 255, 255, 0.02);
-        border: 1px solid rgba(255, 255, 255, 0.06);
-        border-radius: 16px;
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .stat::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          135deg,
-          rgba(52, 211, 153, 0.05),
-          rgba(96, 165, 250, 0.05)
-        );
-        opacity: 0;
-        transition: opacity 0.3s ease;
-      }
-
-      .stat:hover::before {
-        opacity: 1;
-      }
-
-      .stat:hover {
-        background: rgba(255, 255, 255, 0.04);
-        border-color: rgba(52, 211, 153, 0.3);
-        transform: translateY(-3px);
-      }
-
-      .stat-number {
-        font-size: 1.75rem;
-        font-weight: 700;
-        background: linear-gradient(135deg, #34d399, #60a5fa);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        line-height: 1;
-        margin-bottom: 0.5rem;
-        position: relative;
-      }
-
-      .stat-label {
-        font-size: 0.8rem;
-        color: rgba(255, 255, 255, 0.5);
-        font-weight: 500;
-        letter-spacing: 0.02em;
-      }
-
-      /* Modern buttons */
-      .action-buttons {
-        display: flex;
-        gap: 0.75rem;
-        justify-content: center;
-        margin: 2rem 0;
-        opacity: 0;
-        animation: fadeInUp 0.8s ease 0.3s forwards;
-      }
-
-      .btn {
-        padding: 0.9rem 2rem;
-        border-radius: 14px;
-        font-size: 0.95rem;
-        font-weight: 600;
-        text-decoration: none;
-        transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-        cursor: pointer;
-        border: none;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .btn::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          135deg,
-          rgba(255, 255, 255, 0.2),
-          transparent
-        );
-        opacity: 0;
-        transition: opacity 0.3s ease;
-      }
-
-      .btn:hover::before {
-        opacity: 1;
-      }
-
-      .btn-primary {
-        background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
-        color: #0a1628;
-        box-shadow: 0 4px 20px rgba(52, 211, 153, 0.4);
-      }
-
-      .btn-primary:hover {
-        transform: translateY(-3px) scale(1.02);
-        box-shadow: 0 8px 30px rgba(52, 211, 153, 0.5);
-      }
-
-      .btn-secondary {
-        background: rgba(255, 255, 255, 0.04);
-        backdrop-filter: blur(10px);
-        color: #e8f1f5;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-      }
-
-      .btn-secondary:hover {
-        background: rgba(255, 255, 255, 0.08);
-        border-color: rgba(52, 211, 153, 0.3);
-        transform: translateY(-3px) scale(1.02);
-        box-shadow: 0 8px 24px rgba(52, 211, 153, 0.2);
-      }
-
-      /* Elegant tabs */
-      .tabs {
-        display: flex;
-        gap: 0.5rem;
-        background: rgba(255, 255, 255, 0.02);
-        backdrop-filter: blur(10px);
-        padding: 0.5rem;
-        border-radius: 16px;
-        margin-bottom: 2rem;
-        border: 1px solid rgba(255, 255, 255, 0.06);
-        opacity: 0;
-        animation: fadeInUp 0.8s ease 0.4s forwards;
-      }
-
-      .tab {
-        flex: 1;
-        padding: 0.75rem 1rem;
-        background: transparent;
-        border: none;
-        color: rgba(255, 255, 255, 0.5);
-        font-size: 0.9rem;
-        font-weight: 600;
-        border-radius: 12px;
-        cursor: pointer;
-        transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-        position: relative;
-      }
-
-      .tab::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        width: 0;
-        height: 2px;
-        background: linear-gradient(90deg, #34d399, #60a5fa);
-        transform: translateX(-50%);
-        transition: width 0.3s ease;
-      }
-
-      .tab.active {
-        background: linear-gradient(
-          135deg,
-          rgba(52, 211, 153, 0.12),
-          rgba(96, 165, 250, 0.08)
-        );
-        color: #ffffff;
-        box-shadow: 0 4px 12px rgba(52, 211, 153, 0.15);
-      }
-
-      .tab.active::after {
-        width: 60%;
-      }
-
-      .tab:hover:not(.active) {
-        color: rgba(255, 255, 255, 0.8);
-        background: rgba(255, 255, 255, 0.03);
-      }
-
-      /* Content sections */
-      .content-section {
-        display: none;
-        opacity: 0;
-        animation: fadeIn 0.5s ease forwards;
-      }
-
-      .content-section.active {
-        display: block;
-      }
-
-      .section-title {
-        font-size: 0.85rem;
-        font-weight: 600;
-        color: rgba(255, 255, 255, 0.4);
-        margin-bottom: 1.5rem;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-      }
-
-      /* Skills grid with bento style */
-      .skills-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-        gap: 0.65rem;
-        margin-bottom: 2rem;
-      }
-
-      .skill-item {
-        background: rgba(255, 255, 255, 0.03);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        padding: 1rem 0.75rem;
-        border-radius: 14px;
-        text-align: center;
-        font-size: 0.85rem;
-        font-weight: 500;
-        color: rgba(255, 255, 255, 0.9);
-        transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .skill-item::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          135deg,
-          rgba(52, 211, 153, 0.1),
-          rgba(96, 165, 250, 0.1)
-        );
-        opacity: 0;
-        transition: opacity 0.3s ease;
-      }
-
-      .skill-item:hover::before {
-        opacity: 1;
-      }
-
-      .skill-item:hover {
-        background: rgba(52, 211, 153, 0.08);
-        border-color: rgba(52, 211, 153, 0.3);
-        transform: translateY(-4px) scale(1.02);
-        box-shadow: 0 8px 20px rgba(52, 211, 153, 0.2);
-        color: #ffffff;
-      }
-
-      /* About text */
-      .about-text {
-        font-size: 1rem;
-        line-height: 1.8;
-        color: rgba(255, 255, 255, 0.7);
-        margin-bottom: 2rem;
-        text-align: left;
-      }
-
-      .highlight {
-        color: #34d399;
-        font-weight: 600;
-      }
-
-      /* Portfolio box */
-      .portfolio-box {
-        background: rgba(52, 211, 153, 0.05);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(52, 211, 153, 0.2);
-        padding: 1.5rem;
-        border-radius: 16px;
-        border-left: 3px solid #34d399;
-        font-size: 1rem;
-        line-height: 1.8;
-        color: rgba(255, 255, 255, 0.75);
-        box-shadow: 0 4px 20px rgba(52, 211, 153, 0.1);
-      }
-
-      .portfolio-box strong {
-        color: #34d399;
-      }
-
-      /* Contact cards */
-      .contact-grid {
-        display: grid;
-        gap: 1rem;
-      }
-
-      .contact-card {
-        background: rgba(255, 255, 255, 0.03);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        padding: 1.25rem;
-        border-radius: 16px;
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .contact-card::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          135deg,
-          rgba(52, 211, 153, 0.05),
-          rgba(96, 165, 250, 0.05)
-        );
-        opacity: 0;
-        transition: opacity 0.3s ease;
-      }
-
-      .contact-card:hover::before {
-        opacity: 1;
-      }
-
-      .contact-card:hover {
-        background: rgba(255, 255, 255, 0.05);
-        border-color: rgba(52, 211, 153, 0.3);
-        transform: translateX(5px);
-      }
-
-      .contact-icon {
-        width: 44px;
-        height: 44px;
-        background: linear-gradient(
-          135deg,
-          rgba(52, 211, 153, 0.15),
-          rgba(96, 165, 250, 0.1)
-        );
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.3rem;
-        flex-shrink: 0;
-        position: relative;
-      }
-
-      .contact-details {
-        flex: 1;
-        position: relative;
-      }
-
-      .contact-label {
-        font-size: 0.8rem;
-        color: rgba(255, 255, 255, 0.5);
-        margin-bottom: 0.25rem;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-      }
-
-      .contact-value {
-        font-size: 0.95rem;
-        color: #ffffff;
-        font-weight: 500;
-      }
-
-      /* Footer */
-      footer {
-        text-align: center;
-        padding: 2rem;
-        color: rgba(255, 255, 255, 0.3);
-        font-size: 0.85rem;
-        margin-top: 2rem;
-      }
-
-      /* Animations */
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
-      }
-
-      /* Responsive */
-      @media (max-width: 640px) {
-        .container {
-          padding: 2.5rem 1.25rem;
-        }
-
-        .glass-card {
-          padding: 2rem 1.5rem;
-        }
-
-        h1 {
-          font-size: 2rem;
-        }
-
-        .stats {
-          gap: 0.75rem;
-        }
-
-        .stat {
-          padding: 1rem;
-        }
-
-        .stat-number {
-          font-size: 1.5rem;
-        }
-
-        .action-buttons {
-          flex-direction: column;
-        }
-
-        .btn {
-          width: 100%;
-          justify-content: center;
-        }
-
-        .skills-grid {
-          grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-
-    <div class="container">
-      <div class="glass-card">
-        <header class="header">
-          <div class="avatar-container">
-            <div class="avatar-glow"></div>
-            <img
-              src="./assets/images/logo.webp"
-              alt="Vinay Sharma"
-              class="avatar"
-            />
-          </div>
-          <h1>Vinay Sharma</h1>
-          <div class="role">Ruby on Rails Developer</div>
-
-          <div class="social-links">
-            <a
-              href="https://github.com/vinshaku"
-              target="_blank"
-              class="social-icon"
-              title="GitHub"
-            >
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"
-                />
-              </svg>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/vinshaku"
-              target="_blank"
-              class="social-icon"
-              title="LinkedIn"
-            >
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
-                />
-              </svg>
-            </a>
-            <a
-              href="mailto:vinaysharma.contact@gmail.com"
-              class="social-icon"
-              title="Email"
-            >
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
-                />
-              </svg>
-            </a>
-          </div>
-
-          <div class="stats">
-            <div class="stat">
-              <div class="stat-number">5+</div>
-              <div class="stat-label">Years</div>
-            </div>
-            <div class="stat">
-              <div class="stat-number">15+</div>
-              <div class="stat-label">Projects</div>
-            </div>
-            <div class="stat">
-              <div class="stat-number">10+</div>
-              <div class="stat-label">Skills</div>
-            </div>
-          </div>
-
-          <div class="action-buttons">
-            <a
-              href="mailto:vinaysharma.contact@gmail.com"
-              class="btn btn-primary"
-              >Contact Me</a
-            >
-            <a href="./releases/download/v1.0/vinay_sharma_resume.pdf" download="vinay_sharma_resume.pdf" class="btn btn-secondary" target="_blank">Download CV</a>
-          </div>
-        </header>
-
-        <div class="tabs">
-          <button class="tab active" onclick="switchTab('about')">About</button>
-          <button class="tab" onclick="switchTab('skills')">Skills</button>
-          <button class="tab" onclick="switchTab('portfolio')">
-            Portfolio
-          </button>
-        </div>
-
-        <div id="about-section" class="content-section active">
-          <h3 class="section-title">About Me</h3>
-          <div class="about-text">
-            Ruby on Rails Developer with
-            <span class="highlight">5+ years of experience</span>. Skilled in
-            designing RESTful APIs, integrating payment gateways, optimizing
-            backend performance, and deploying to AWS and Heroku. Collaborated
-            across POS, CRM, VoIP, Real Estate, and e-commerce domains to
-            deliver production-ready solutions.
-          </div>
-          <div class="contact-grid">
-            <div class="contact-card">
-              <div class="contact-icon">📧</div>
-              <div class="contact-details">
-                <div class="contact-label">Email</div>
-                <div class="contact-value"><a href="mailto:vinaysharma.contact@gmail.com" style="text-decoration: none; color: inherit;">vinaysharma.contact@gmail.com</a></div>
-              </div>
-            </div>
-            <div class="contact-card">
-              <div class="contact-icon">📍</div>
-              <div class="contact-details">
-                <div class="contact-label">Location</div>
-                <div class="contact-value">Ahmedabad, India</div>
-              </div>
-            </div>
-            <div class="contact-card">
-              <div class="contact-icon">📞</div>
-              <div class="contact-details">
-                <div class="contact-label">Phone</div>
-                <div class="contact-value"><a href="tel:+919974440354" style="text-decoration: none; color: inherit;">+91 9974440354</a></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div id="skills-section" class="content-section">
-          <h3 class="section-title">Technical Skills</h3>
-          <div class="skills-grid">
-            <div class="skill-item">Ruby</div>
-            <div class="skill-item">Ruby on Rails</div>
-            <div class="skill-item">API Integration</div>
-            <div class="skill-item">jQuery</div>
-            <div class="skill-item">HTML</div>
-            <div class="skill-item">CSS/SCSS</div>
-            <div class="skill-item">Bootstrap</div>
-            <div class="skill-item">RSpec</div>
-            <div class="skill-item">MySQL</div>
-            <div class="skill-item">PostgreSQL</div>
-            <div class="skill-item">MongoDB</div>
-            <div class="skill-item">Git</div>
-          </div>
-        </div>
-
-        <div id="portfolio-section" class="content-section">
-          <h3 class="section-title">Portfolio</h3>
-          <div class="portfolio-box">
-            Developed multiple private client projects including
-            <strong>CRM systems</strong>, <strong>POS systems</strong>,
-            <strong>e-commerce platforms</strong>, inventory management systems,
-            VoIP integrations, and real estate applications. All projects are
-            production-deployed on <strong>AWS/Heroku</strong> with RESTful
-            APIs, payment gateway integrations (Stripe, etc.), webhooks,
-            reporting modules, and mobile-app backend support.
-          </div>
-        </div>
-
-        <footer>
-          <p>&copy; 2025 Vinay Sharma. All rights reserved.</p>
-        </footer>
-      </div>
-    </div>
-
-    <script>
-      function switchTab(tabName) {
-        const tabs = document.querySelectorAll(".tab");
-        tabs.forEach((tab) => tab.classList.remove("active"));
-        event.target.classList.add("active");
-
-        const sections = document.querySelectorAll(".content-section");
-        sections.forEach((section) => {
-          section.classList.remove("active");
-        });
-        document.getElementById(tabName + "-section").classList.add("active");
-      }
-    </script>
-  </body>
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Vinay Sharma | Ruby on Rails Developer (RoR) | vinshaku</title>
+<meta name="description" content="Portfolio of Vinay Sharma, a Ruby on Rails (RoR) developer based in India. Explore projects, tech stack, and experience. Also known as vinshaku on GitHub."/>
+<meta name="keywords" content="vinay sharma, ruby on rails developer, rails developer, ROR developer india, vinshaku, vinshaku.com, backend developer, github, ruby developer india, rails programmer"/>
+<meta name="author" content="Vinay Sharma"/>
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://vinshaku.com/"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preload" as="image" href="./assets/images/logo.webp" fetchpriority="high"/>
+<style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(135deg,#0a1628 0%,#0f1922 50%,#1a1f2e 100%);color:#e8f1f5;overflow-x:hidden;line-height:1.6;position:relative;min-height:100vh}body::before{content:"";position:fixed;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse 100% 70% at 20% 30%,rgba(52,211,153,0.12),transparent 50%),radial-gradient(ellipse 80% 60% at 80% 40%,rgba(96,165,250,0.08),transparent 50%),radial-gradient(ellipse 90% 80% at 50% 80%,rgba(251,191,36,0.06),transparent 50%);pointer-events:none;animation:meshMove 20s ease-in-out infinite}@keyframes meshMove{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.8;transform:scale(1.05)}}.orb{position:fixed;border-radius:50%;filter:blur(80px);opacity:0.3;pointer-events:none;animation:float 15s ease-in-out infinite}.orb-1{width:400px;height:400px;background:radial-gradient(circle,rgba(52,211,153,0.4),transparent);top:-10%;left:-10%;animation-delay:0s}.orb-2{width:350px;height:350px;background:radial-gradient(circle,rgba(96,165,250,0.3),transparent);bottom:-10%;right:-10%;animation-delay:7s}@keyframes float{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-30px) scale(1.1)}66%{transform:translate(-20px,20px) scale(0.9)}}.container{position:relative;z-index:1;max-width:650px;margin:0 auto;padding:3rem 1.5rem}.glass-card{background:rgba(255,255,255,0.03);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:2.5rem;box-shadow:0 8px 32px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.05);position:relative;overflow:hidden}.glass-card::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(52,211,153,0.5),transparent)}.header{text-align:center;margin-bottom:2rem;opacity:0;animation:fadeInUp 0.8s ease forwards}.avatar-container{position:relative;width:140px;height:140px;margin:0 auto 1.5rem}.avatar-glow{position:absolute;inset:-20px;background:radial-gradient(circle,rgba(52,211,153,0.4),transparent 70%);border-radius:50%;filter:blur(25px);animation:pulse 3s ease-in-out infinite}@keyframes pulse{0%,100%{opacity:0.6;transform:scale(1)}50%{opacity:1;transform:scale(1.1)}}.avatar{width:140px;height:140px;border-radius:50%;border:3px solid rgba(52,211,153,0.3);box-shadow:0 0 0 6px rgba(52,211,153,0.1),0 8px 32px rgba(52,211,153,0.25);position:relative;z-index:2;transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1)}.avatar:hover{transform:scale(1.08);border-color:rgba(52,211,153,0.6);box-shadow:0 0 0 8px rgba(52,211,153,0.15),0 12px 48px rgba(52,211,153,0.4)}h1{font-size:2.5rem;font-weight:800;margin-bottom:0.5rem;background:linear-gradient(135deg,#ffffff 0%,#34d399 50%,#60a5fa 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-0.03em;line-height:1.1}.role{font-size:1rem;color:rgba(255,255,255,0.5);font-weight:500;margin-bottom:1rem}.social-links{display:flex;justify-content:center;gap:0.75rem;margin:1.5rem 0}.social-icon{width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,0.04);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1);cursor:pointer;text-decoration:none;position:relative;overflow:hidden}.social-icon::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(52,211,153,0.3),rgba(96,165,250,0.3));opacity:0;transition:opacity 0.3s ease}.social-icon:hover::before{opacity:1}.social-icon svg{width:18px;height:18px;fill:rgba(255,255,255,0.7);position:relative;z-index:1;transition:all 0.3s ease}.social-icon:hover{background:rgba(52,211,153,0.15);border-color:rgba(52,211,153,0.4);transform:translateY(-4px) scale(1.05);box-shadow:0 8px 24px rgba(52,211,153,0.3)}.social-icon:hover svg{fill:rgba(255,255,255,1);transform:scale(1.15)}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:2rem 0;opacity:0;animation:fadeInUp 0.8s ease 0.2s forwards}.stat{text-align:center;padding:1.25rem;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:16px;transition:all 0.3s ease;position:relative;overflow:hidden}.stat::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(52,211,153,0.05),rgba(96,165,250,0.05));opacity:0;transition:opacity 0.3s ease}.stat:hover::before{opacity:1}.stat:hover{background:rgba(255,255,255,0.04);border-color:rgba(52,211,153,0.3);transform:translateY(-3px)}.stat-number{font-size:1.75rem;font-weight:700;background:linear-gradient(135deg,#34d399,#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:0.5rem;position:relative}.stat-label{font-size:0.8rem;color:rgba(255,255,255,0.5);font-weight:500;letter-spacing:0.02em}.action-buttons{display:flex;gap:0.75rem;justify-content:center;margin:2rem 0;opacity:0;animation:fadeInUp 0.8s ease 0.3s forwards}.btn{padding:0.9rem 2rem;border-radius:14px;font-size:0.95rem;font-weight:600;text-decoration:none;transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1);cursor:pointer;border:none;display:inline-flex;align-items:center;gap:0.5rem;position:relative;overflow:hidden}.btn::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.2),transparent);opacity:0;transition:opacity 0.3s ease}.btn:hover::before{opacity:1}.btn-primary{background:linear-gradient(135deg,#34d399 0%,#10b981 100%);color:#0a1628;box-shadow:0 4px 20px rgba(52,211,153,0.4)}.btn-primary:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 8px 30px rgba(52,211,153,0.5)}.btn-secondary{background:rgba(255,255,255,0.04);backdrop-filter:blur(10px);color:#e8f1f5;border:1px solid rgba(255,255,255,0.1)}.btn-secondary:hover{background:rgba(255,255,255,0.08);border-color:rgba(52,211,153,0.3);transform:translateY(-3px) scale(1.02);box-shadow:0 8px 24px rgba(52,211,153,0.2)}.tabs{display:flex;gap:0.5rem;background:rgba(255,255,255,0.02);backdrop-filter:blur(10px);padding:0.5rem;border-radius:16px;margin-bottom:2rem;border:1px solid rgba(255,255,255,0.06);opacity:0;animation:fadeInUp 0.8s ease 0.4s forwards}.tab{flex:1;padding:0.75rem 1rem;background:transparent;border:none;color:rgba(255,255,255,0.5);font-size:0.9rem;font-weight:600;border-radius:12px;cursor:pointer;transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1);position:relative}.tab::after{content:"";position:absolute;bottom:0;left:50%;width:0;height:2px;background:linear-gradient(90deg,#34d399,#60a5fa);transform:translateX(-50%);transition:width 0.3s ease}.tab.active{background:linear-gradient(135deg,rgba(52,211,153,0.12),rgba(96,165,250,0.08));color:#ffffff;box-shadow:0 4px 12px rgba(52,211,153,0.15)}.tab.active::after{width:60%}.tab:hover:not(.active){color:rgba(255,255,255,0.8);background:rgba(255,255,255,0.03)}.content-section{display:none;opacity:0;animation:fadeIn 0.5s ease forwards}.content-section.active{display:block}.section-title{font-size:0.85rem;font-weight:600;color:rgba(255,255,255,0.4);margin-bottom:1.5rem;text-transform:uppercase;letter-spacing:0.1em}.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:0.65rem;margin-bottom:2rem}.skill-item{background:rgba(255,255,255,0.03);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.08);padding:1rem 0.75rem;border-radius:14px;text-align:center;font-size:0.85rem;font-weight:500;color:rgba(255,255,255,0.9);transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1);position:relative;overflow:hidden}.skill-item::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(52,211,153,0.1),rgba(96,165,250,0.1));opacity:0;transition:opacity 0.3s ease}.skill-item:hover::before{opacity:1}.skill-item:hover{background:rgba(52,211,153,0.08);border-color:rgba(52,211,153,0.3);transform:translateY(-4px) scale(1.02);box-shadow:0 8px 20px rgba(52,211,153,0.2);color:#ffffff}.about-text{font-size:1rem;line-height:1.8;color:rgba(255,255,255,0.7);margin-bottom:2rem;text-align:left}.highlight{color:#34d399;font-weight:600}.portfolio-box{background:rgba(52,211,153,0.05);backdrop-filter:blur(10px);border:1px solid rgba(52,211,153,0.2);padding:1.5rem;border-radius:16px;border-left:3px solid #34d399;font-size:1rem;line-height:1.8;color:rgba(255,255,255,0.75);box-shadow:0 4px 20px rgba(52,211,153,0.1)}.portfolio-box strong{color:#34d399}.contact-grid{display:grid;gap:1rem}.contact-card{background:rgba(255,255,255,0.03);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.08);padding:1.25rem;border-radius:16px;display:flex;align-items:center;gap:1rem;transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1);position:relative;overflow:hidden}.contact-card::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(52,211,153,0.05),rgba(96,165,250,0.05));opacity:0;transition:opacity 0.3s ease}.contact-card:hover::before{opacity:1}.contact-card:hover{background:rgba(255,255,255,0.05);border-color:rgba(52,211,153,0.3);transform:translateX(5px)}.contact-icon{width:44px;height:44px;background:linear-gradient(135deg,rgba(52,211,153,0.15),rgba(96,165,250,0.1));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;position:relative}.contact-details{flex:1;position:relative}.contact-label{font-size:0.8rem;color:rgba(255,255,255,0.5);margin-bottom:0.25rem;text-transform:uppercase;letter-spacing:0.05em}.contact-value{font-size:0.95rem;color:#ffffff;font-weight:500}footer{text-align:center;padding:2rem;color:rgba(255,255,255,0.3);font-size:0.85rem;margin-top:2rem}@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}@keyframes fadeIn{from{opacity:0}to{opacity:1}}@media (max-width:640px){.container{padding:2.5rem 1.25rem}.glass-card{padding:2rem 1.5rem}h1{font-size:2rem}.stats{gap:0.75rem}.stat{padding:1rem}.stat-number{font-size:1.5rem}.action-buttons{flex-direction:column}.btn{width:100%;justify-content:center}.skills-grid{grid-template-columns:repeat(auto-fill,minmax(110px,1fr))}}</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
+</head>
+<body>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="container">
+<div class="glass-card">
+<header class="header">
+<div class="avatar-container">
+<div class="avatar-glow"></div>
+<img src="./assets/images/logo.webp" alt="Vinay Sharma" class="avatar" width="140" height="140" fetchpriority="high"/>
+</div>
+<h1>Vinay Sharma</h1>
+<div class="role">Ruby on Rails Developer</div>
+<div class="social-links">
+<a href="https://github.com/vinshaku" target="_blank" rel="noopener" class="social-icon" title="GitHub" aria-label="GitHub">
+<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+</a>
+<a href="https://www.linkedin.com/in/vinshaku" target="_blank" rel="noopener" class="social-icon" title="LinkedIn" aria-label="LinkedIn">
+<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+</a>
+<a href="mailto:vinaysharma.contact@gmail.com" class="social-icon" title="Email" aria-label="Email">
+<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+</a>
+</div>
+<div class="stats">
+<div class="stat">
+<div class="stat-number">5+</div>
+<div class="stat-label">Years</div>
+</div>
+<div class="stat">
+<div class="stat-number">15+</div>
+<div class="stat-label">Projects</div>
+</div>
+<div class="stat">
+<div class="stat-number">10+</div>
+<div class="stat-label">Skills</div>
+</div>
+</div>
+<div class="action-buttons">
+<a href="mailto:vinaysharma.contact@gmail.com" class="btn btn-primary">Contact Me</a>
+<a href="./releases/download/v1.0/vinay_sharma_resume.pdf" download="vinay_sharma_resume.pdf" class="btn btn-secondary" target="_blank" rel="noopener">Download CV</a>
+</div>
+</header>
+<div class="tabs">
+<button class="tab active" onclick="switchTab('about')">About</button>
+<button class="tab" onclick="switchTab('skills')">Skills</button>
+<button class="tab" onclick="switchTab('portfolio')">Portfolio</button>
+</div>
+<div id="about-section" class="content-section active">
+<h3 class="section-title">About Me</h3>
+<div class="about-text">Ruby on Rails Developer with <span class="highlight">5+ years of experience</span>. Skilled in designing RESTful APIs, integrating payment gateways, optimizing backend performance, and deploying to AWS and Heroku. Collaborated across POS, CRM, VoIP, Real Estate, and e-commerce domains to deliver production-ready solutions.</div>
+<div class="contact-grid">
+<div class="contact-card">
+<div class="contact-icon">📧</div>
+<div class="contact-details">
+<div class="contact-label">Email</div>
+<div class="contact-value"><a href="mailto:vinaysharma.contact@gmail.com" style="text-decoration:none;color:inherit;">vinaysharma.contact@gmail.com</a></div>
+</div>
+</div>
+<div class="contact-card">
+<div class="contact-icon">📍</div>
+<div class="contact-details">
+<div class="contact-label">Location</div>
+<div class="contact-value">Ahmedabad, India</div>
+</div>
+</div>
+<div class="contact-card">
+<div class="contact-icon">📞</div>
+<div class="contact-details">
+<div class="contact-label">Phone</div>
+<div class="contact-value"><a href="tel:+919974440354" style="text-decoration:none;color:inherit;">+91 9974440354</a></div>
+</div>
+</div>
+</div>
+</div>
+<div id="skills-section" class="content-section">
+<h3 class="section-title">Technical Skills</h3>
+<div class="skills-grid">
+<div class="skill-item">Ruby</div>
+<div class="skill-item">Ruby on Rails</div>
+<div class="skill-item">API Integration</div>
+<div class="skill-item">jQuery</div>
+<div class="skill-item">HTML</div>
+<div class="skill-item">CSS/SCSS</div>
+<div class="skill-item">Bootstrap</div>
+<div class="skill-item">RSpec</div>
+<div class="skill-item">MySQL</div>
+<div class="skill-item">PostgreSQL</div>
+<div class="skill-item">MongoDB</div>
+<div class="skill-item">Git</div>
+</div>
+</div>
+<div id="portfolio-section" class="content-section">
+<h3 class="section-title">Portfolio</h3>
+<div class="portfolio-box">Developed multiple private client projects including <strong>CRM systems</strong>, <strong>POS systems</strong>, <strong>e-commerce platforms</strong>, inventory management systems, VoIP integrations, and real estate applications. All projects are production-deployed on <strong>AWS/Heroku</strong> with RESTful APIs, payment gateway integrations (Stripe, etc.), webhooks, reporting modules, and mobile-app backend support.</div>
+</div>
+<footer>
+<p>&copy; 2025 Vinay Sharma. All rights reserved.</p>
+</footer>
+</div>
+</div>
+<script>function switchTab(t){document.querySelectorAll(".tab").forEach(e=>e.classList.remove("active"));event.target.classList.add("active");document.querySelectorAll(".content-section").forEach(e=>e.classList.remove("active"));document.getElementById(t+"-section").classList.add("active")}</script>
+</body>
 </html>
