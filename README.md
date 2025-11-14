@@ -17,7 +17,7 @@ I've worked across industries like e-commerce, CRM, POS systems, VoIP, and real 
 - ✉️ Email: [vinaysharma.contact@gmail.com](mailto:vinaysharma.contact@gmail.com)  
 - 🧑‍💻 GitHub: [vinshaku](https://github.com/vinshaku)  
 - 💼 LinkedIn: [vinshaku](https://linkedin.com/in/vinshaku)  
-- 🌐 Portfolio: [vins.dev](https://vins.dev)
+- 🌐 Portfolio: [vinshaku.com](https://vinshaku.com)
 
 ---
 
